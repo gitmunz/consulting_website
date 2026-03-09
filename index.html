@@ -126,7 +126,6 @@
         font-weight: bold;
       }
 
-
       /* Scroll-triggered reveal */
       .reveal {
         opacity: 0;
@@ -179,6 +178,18 @@
 
       .solution-card .card-body {
         padding: 1.75rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card-icon {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.25rem;
+        width: 40px;
+        height: 40px;
+        color: rgba(154, 191, 237, 0.839);
+        pointer-events: none;
       }
 
       /* Offset anchor scroll positions to account for fixed header */
@@ -443,6 +454,7 @@
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
             <div class="card-body">
+              <i data-lucide="dna" class="card-icon"></i>
               <h3 class="text-xl font-bold text-white mb-4">
                 NGS Data Analysis
               </h3>
@@ -458,6 +470,7 @@
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
             <div class="card-body">
+              <i data-lucide="gpu" class="card-icon"></i>
               <h3 class="text-xl font-bold text-white mb-4">
                 Machine Learning
               </h3>
@@ -474,8 +487,9 @@
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
             <div class="card-body">
+              <i data-lucide="cloudy" class="card-icon"></i>
               <h3 class="text-xl font-bold text-white mb-4">
-                Cloud Architecture & Engineering
+                Cloud Engineering
               </h3>
               <p class="text-slate-300 text-md">
                 Building scalable, secure, and cost-efficient AWS or Google
@@ -489,6 +503,7 @@
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
             <div class="card-body">
+              <i data-lucide="wand-sparkles" class="card-icon"></i>
               <h3 class="text-xl font-bold text-white mb-4">
                 LLM-Powered Pipelines
               </h3>
@@ -504,6 +519,7 @@
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
             <div class="card-body">
+              <i data-lucide="workflow" class="card-icon"></i>
               <h3 class="text-xl font-bold text-white mb-4">
                 Bioinformatics Pipelines
               </h3>
@@ -519,6 +535,7 @@
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
             <div class="card-body">
+              <i data-lucide="database" class="card-icon"></i>
               <h3 class="text-xl font-bold text-white mb-4">
                 Data Engineering
               </h3>
@@ -534,8 +551,9 @@
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
             <div class="card-body">
+              <i data-lucide="code" class="card-icon"></i>
               <h3 class="text-xl font-bold text-white mb-4">
-                Full Stack Software Development
+                Software Development
               </h3>
               <p class="text-slate-300 text-md">
                 Web applications for processing, visualizing, and interacting
@@ -549,6 +567,7 @@
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
             <div class="card-body">
+              <i data-lucide="settings" class="card-icon"></i>
               <h3 class="text-xl font-bold text-white mb-4">
                 DevOps Engineering & Support
               </h3>
@@ -564,6 +583,7 @@
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
             <div class="card-body">
+              <i data-lucide="monitor" class="card-icon"></i>
               <h3 class="text-xl font-bold text-white mb-4">Blabla bla</h3>
               <p class="text-slate-300 text-md">
                 Deployment of data-intensive applications in the cloud;
@@ -711,22 +731,48 @@
       </section>
 
       <section id="contact" class="max-w-7xl mx-auto mb-20">
-        <div class="relative rounded-3xl overflow-hidden reveal" style="background: linear-gradient(135deg, rgba(15,23,42,0.8) 0%, rgba(30,41,59,0.6) 50%, rgba(15,23,42,0.8) 100%); border: 1px solid rgba(255,255,255,0.08);">
+        <div
+          class="relative rounded-3xl overflow-hidden reveal"
+          style="
+            background: linear-gradient(
+              135deg,
+              rgba(15, 23, 42, 0.8) 0%,
+              rgba(30, 41, 59, 0.6) 50%,
+              rgba(15, 23, 42, 0.8) 100%
+            );
+            border: 1px solid rgba(255, 255, 255, 0.08);
+          "
+        >
           <!-- Decorative glow -->
-          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
-          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-32 bg-blue-500/10 blur-3xl pointer-events-none"></div>
+          <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"
+          ></div>
+          <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-32 bg-blue-500/10 blur-3xl pointer-events-none"
+          ></div>
 
           <div class="relative px-8 py-16 md:px-16 md:py-20 text-center">
-            <p class="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4">Ready to get started?</p>
-            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
+            <p
+              class="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4"
+            >
+              Ready to get started?
+            </p>
+            <h2
+              class="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight"
+            >
               Let’s Build Something Together
             </h2>
-            <p class="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto mb-10">
-              Whether you need a one-off analysis, a production pipeline, or a long-term
-              engineering partner — the best next step is a free 30-minute call.
+            <p
+              class="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto mb-10"
+            >
+              Whether you need a one-off analysis, a production pipeline, or a
+              long-term engineering partner — the best next step is a free
+              30-minute call.
             </p>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+            <div
+              class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
+            >
               <a
                 href="#book"
                 id="bookBottom"
@@ -742,17 +788,25 @@
               </a>
             </div>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-slate-400">
+            <div
+              class="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-slate-400"
+            >
               <span class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>
+                <span
+                  class="w-2 h-2 rounded-full bg-emerald-400 inline-block"
+                ></span>
                 No commitment required
               </span>
               <span class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>
+                <span
+                  class="w-2 h-2 rounded-full bg-emerald-400 inline-block"
+                ></span>
                 Response within 24 hours
               </span>
               <span class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>
+                <span
+                  class="w-2 h-2 rounded-full bg-emerald-400 inline-block"
+                ></span>
                 NDA available on request
               </span>
             </div>
@@ -827,7 +881,11 @@
       </div>
     </div>
 
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+
       // Scroll-reveal with Intersection Observer
       const revealObserver = new IntersectionObserver(
         (entries) => {
@@ -881,7 +939,6 @@
         if (e.key === "Escape" && !modal.classList.contains("hidden"))
           hideModal();
       });
-
     </script>
   </body>
 </html>
