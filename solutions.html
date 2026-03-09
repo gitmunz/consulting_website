@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example Solutions — Márton Münz, PhD</title>
+    <meta
+      name="description"
+      content="Example solutions for bioinformatics, cloud infrastructure, AI systems, and data engineering challenges in biotech."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #020617;
+        font-family: "Inter", sans-serif;
+        color: #f1f5f9;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      .brand-font {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+
+      .bg-glow {
+        position: fixed;
+        top: -10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: 800px;
+        background: radial-gradient(
+          circle at 50% 0%,
+          rgba(37, 99, 235, 0.15) 0%,
+          rgba(2, 6, 23, 0) 70%
+        );
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .dot-overlay {
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px
+        );
+        background-size: 24px 24px;
+        z-index: -1;
+      }
+
+      .glass-card {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Solution card design */
+      .solution-card {
+        background: rgba(15, 23, 42, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 1rem;
+        overflow: hidden;
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s,
+          transform 0.3s;
+      }
+
+      .solution-card:hover {
+        border-color: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+        transform: translateY(-2px);
+      }
+
+      .solution-card .card-accent {
+        height: 3px;
+      }
+
+      .solution-card .card-body {
+        padding: 1.75rem;
+      }
+
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .fade-in-up {
+        opacity: 0;
+        animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .text-gradient {
+        background: linear-gradient(to right, #60a5fa, #818cf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .text-myname {
+        background: #818cf8;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      ul.feature-list li {
+        padding-left: 1.5rem;
+        position: relative;
+        margin-bottom: 0.5rem;
+        color: #cbd5e1;
+      }
+
+      ul.feature-list li::before {
+        content: "\2192";
+        position: absolute;
+        left: 0;
+        color: #3b82f6;
+        font-weight: bold;
+      }
+
+      /* Collapsible solution sections */
+      details.solution-toggle {
+        margin-top: 1.25rem;
+      }
+
+      details.solution-toggle summary {
+        cursor: pointer;
+        list-style: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0rem;
+        border-radius: 0.5rem;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        user-select: none;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+      }
+
+      details.solution-toggle summary:hover {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+
+      details.solution-toggle summary::-webkit-details-marker {
+        display: none;
+      }
+
+      details.solution-toggle summary .chevron {
+        display: inline-block;
+        font-size: 0.55rem;
+        transition: transform 0.2s ease;
+        color: #64748b;
+      }
+
+      details.solution-toggle[open] summary .chevron {
+        transform: rotate(90deg);
+      }
+
+      details.solution-toggle[open] summary {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+
+      details.solution-toggle .solution-content {
+        padding-top: 1.25rem;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Scroll-triggered reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+          transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal-group .reveal {
+        transition-delay: calc(var(--reveal-i, 0) * 120ms);
+      }
+
+      :root {
+        --header-offset: 110px;
+      }
+
+      section[id] {
+        scroll-margin-top: var(--header-offset);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen selection:bg-blue-500/30">
+    <div class="bg-glow"></div>
+    <div class="dot-overlay"></div>
+
+    <header
+      id="siteHeader"
+      class="fixed top-0 w-full z-50 glass-nav transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-1 py-4">
+        <div class="flex items-center justify-between">
+          <a class="flex flex-col group" href="index.html" aria-label="Home">
+            <strong
+              class="text-slate-500 text-lg brand-font tracking-tight group-hover:text-blue-600 transition-colors"
+              >Márton Münz, PhD</strong
+            >
+            <span class="text-xs text-slate-900"
+              >Computational Biology • Cloud • ML/AI Consulting</span
+            >
+          </a>
+
+          <button
+            id="menuBtn"
+            class="md:hidden px-4 py-2 border border-slate-300 rounded-full text-sm text-slate-700 bg-slate-100 hover:bg-slate-200"
+          >
+            Menu
+          </button>
+
+          <nav class="hidden md:flex items-center gap-8">
+            <ul class="flex gap-6 text-md text-slate-500 font-medium list-none">
+              <li>
+                <a
+                  href="index.html#services"
+                  class="hover:text-slate-900 transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#case-studies"
+                  class="hover:text-slate-900 transition-colors"
+                  >About me</a
+                >
+              </li>
+              <li>
+                <a
+                  href="testimonials.html"
+                  class="hover:text-slate-900 transition-colors"
+                  >Testimonials</a
+                >
+              </li>
+              <li>
+                <a
+                  href="faq.html"
+                  class="hover:text-slate-900 transition-colors"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+
+            <div class="flex gap-4 items-center pl-4 border-l border-slate-200">
+              <a
+                href="mailto:contact@martonmunz.com?subject=Project%20inquiry"
+                class="text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                >Email</a
+              >
+              <a
+                href="#book"
+                id="bookTop"
+                class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-lg shadow-blue-900/20"
+                >Book a call</a
+              >
+            </div>
+          </nav>
+        </div>
+
+        <nav
+          id="mobileNav"
+          class="hidden pt-4 pb-2 md:hidden border-t border-slate-200 mt-4"
+        >
+          <ul class="flex flex-col gap-3 text-sm text-slate-600 list-none">
+            <li><a href="#services" class="block py-2">Services</a></li>
+            <li><a href="#case-studies" class="block py-2">Case Studies</a></li>
+            <li><a href="#testimonials" class="block py-2">Testimonials</a></li>
+            <li><a href="faq.html" class="block py-2">FAQ</a></li>
+            <li>
+              <a href="#book" class="block py-2 text-blue-400 font-bold"
+                >Book a call</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top" class="pt-28 pb-20 px-6">
+      <!-- Hero -->
+      <section class="max-w-7xl mx-auto mb-20 fade-in-up">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/50 border border-white/10 text-xs text-blue-300 font-medium mb-6"
+        ></div>
+        <h1
+          class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6 tracking-tight"
+        >
+          Example Solutions
+        </h1>
+        <p class="text-lg text-slate-300 leading-relaxed max-w-3xl">
+          See a selection of common challenges faced by biotech and research
+          teams, and the solutions I offer, from multi-omics pipelines and
+          agentic AI workflows to GPU infrastructure, cloud cost optimization,
+          HPC and better workflow observability.
+        </p>
+      </section>
+
+      <!-- Solutions Grid -->
+      <section class="max-w-7xl mx-auto mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-group">
+          <!-- 1 — Agentic AI Workflows -->
+          <div class="solution-card reveal" style="--reveal-i: 0">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h2 class="text-2xl font-bold text-white mb-4">
+                Agentic AI Workflows for Bioinformatics
+              </h2>
+              <p class="text-s text-blue-300 mb-6">
+                Unlock AI Automation Without Losing Traceability
+              </p>
+
+              <p class="text-slate-300 text-sm leading-relaxed">
+                As research and data workloads grow in complexity, traditional
+                automation and scripting often become brittle: they may fail
+                when confronted with unpredictable inputs or diverging
+                workflows. Static pipelines and manual interventions slow down
+                throughput, especially when dealing with unstructured data (e.g.
+                clinical notes, experimental metadata, regulatory documents) or
+                multi-step processes involving data retrieval, processing,
+                interpretation, and reporting. This increases the risk of
+                errors, delays and redundant human effort, draining both time
+                and resources.
+              </p>
+
+              <div class="solution-toggle" style="margin-top: 1.25rem">
+                <p
+                  class="text-xs font-bold text-blue-300 uppercase tracking-wide mb-3"
+                >
+                  My Solution
+                </p>
+                <div class="solution-content">
+                  <p class="text-slate-300 text-sm leading-relaxed">
+                    I design and deploy autonomous AI agents &mdash; powered by
+                    large language models (LLMs) &mdash; that understand
+                    high-level goals, break them down into subtasks, and
+                    dynamically orchestrate across tools, data sources, and
+                    services. These agents can handle complex, multi-step
+                    workflows (e.g. data ingestion &rarr; metadata validation
+                    &rarr; analysis &rarr; reporting) without requiring human
+                    input at every step. I integrate procedural memory,
+                    environment/tool connectors, and decision-logic so agents
+                    can react to variable inputs, learn from feedback, and adapt
+                    to evolving requirements. I combine LLM-based reasoning with
+                    robust retrieval-augmented generation (RAG), knowledge graph
+                    integration, or domain-specific data to ensure outputs
+                    remain accurate, context-aware, and compliant with
+                    scientific standards. Finally, I build reusable, modular
+                    agentic pipelines &mdash; scalable and maintainable &mdash;
+                    so your biotech workflows become more efficient, reliable,
+                    and future-proof.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2 — Multi-omics Data Analysis -->
+          <div class="solution-card reveal" style="--reveal-i: 1">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h2 class="text-2xl font-bold text-white mb-4">
+                Multi-omics Data Analysis
+              </h2>
+              <p class="text-s text-blue-300 mb-6">
+                Turn Complex Omics Data Into Insight Without Reproducibility
+                Issues
+              </p>
+
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Modern research increasingly relies on multiomics data &mdash;
+                including genomics, transcriptomics, proteomics, and epigenomics
+                &mdash; to uncover biological mechanisms and therapeutic
+                targets. However, these datasets are large, heterogeneous, and
+                computationally intensive to analyze. Many teams rely on
+                fragmented workflows, inconsistent pipelines, or ad-hoc scripts
+                that are difficult to reproduce or scale, leading to slow
+                analysis cycles, unreliable results, and delays in turning data
+                into actionable biological insight.
+              </p>
+
+              <div class="solution-toggle" style="margin-top: 1.25rem">
+                <p
+                  class="text-xs font-bold text-blue-300 uppercase tracking-wide mb-3"
+                >
+                  My Solution
+                </p>
+                <div class="solution-content">
+                  <p class="text-slate-300 text-sm leading-relaxed">
+                    I design and implement reproducible, production-grade
+                    analysis pipelines tailored to your experimental design and
+                    data types. These pipelines integrate best-practice tools
+                    for sequencing analysis, expression quantification, variant
+                    detection, and multiomics data integration while ensuring
+                    full reproducibility and traceability. I deploy workflows
+                    using scalable execution frameworks (e.g. Nextflow,
+                    Snakemake, or containerized pipelines) that run efficiently
+                    on cloud or HPC infrastructure. I also implement robust data
+                    management, QC reporting, and automated result summarization
+                    so your team can rapidly interpret findings and move to the
+                    next stage of research.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 — End-to-End Sequencing Data Platforms -->
+          <div class="solution-card reveal" style="--reveal-i: 2">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h2 class="text-2xl font-bold text-white mb-4">
+                End-to-End Sequencing Data Pipelines
+              </h2>
+              <p class="text-s text-blue-300 mb-6">
+                Move From Sequencing Data to Discovery Without Bottlenecks
+              </p>
+
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Modern research generates massive volumes of biological data,
+                but many organizations lack the infrastructure to efficiently
+                turn raw sequencing output into actionable insight. Fragmented
+                tools, manual data transfers, and loosely connected analysis
+                scripts lead to slow workflows, poor scalability, and difficulty
+                reproducing results &mdash; leaving valuable data underutilized
+                and researchers spending more time managing infrastructure than
+                generating insight.
+              </p>
+
+              <div class="solution-toggle" style="margin-top: 1.25rem">
+                <p
+                  class="text-xs font-bold text-blue-300 uppercase tracking-wide mb-3"
+                >
+                  My Solution
+                </p>
+                <div class="solution-content">
+                  <p class="text-slate-300 text-sm leading-relaxed">
+                    I design and implement end-to-end computational platforms
+                    that connect sequencing data, scalable infrastructure, and
+                    reproducible analysis workflows into a unified system.
+                    Starting from raw sequencing output, I architect automated
+                    data ingestion pipelines, scalable storage layers, and
+                    containerized analysis workflows that process data reliably
+                    and reproducibly. I integrate workflow orchestration
+                    frameworks, cloud-native compute environments, and robust
+                    data management practices so analyses can scale from single
+                    experiments to large multi-project datasets. I also
+                    implement automated QC, metadata tracking, and result
+                    delivery layers to ensure scientists can quickly access and
+                    interpret results. The outcome is a streamlined research
+                    platform where sequencing data flows efficiently through
+                    analysis pipelines to generate reliable, reproducible
+                    insights &mdash; enabling teams to accelerate discovery
+                    without being slowed down by infrastructure complexity.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 — GPU-Accelerated Model Deployment -->
+          <div class="solution-card reveal" style="--reveal-i: 3">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h2 class="text-2xl font-bold text-white mb-4">
+                GPU-Accelerated Model Deployment
+              </h2>
+              <p class="text-s text-blue-300 mb-6">
+                Accelerate Model Inference Without Overspending on Hardware
+              </p>
+
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Deploying large or complex AI models in production often
+                requires GPU resources that are expensive, difficult to manage,
+                and prone to bottlenecks. Without careful optimization, models
+                may run slowly, consume excessive GPU memory, or require
+                oversized instances just to meet latency targets. This results
+                in inflated deployment costs and unreliable performance across
+                research or clinical workflows.
+              </p>
+
+              <div class="solution-toggle" style="margin-top: 1.25rem">
+                <p
+                  class="text-xs font-bold text-blue-300 uppercase tracking-wide mb-3"
+                >
+                  My Solution
+                </p>
+                <div class="solution-content">
+                  <p class="text-slate-300 text-sm leading-relaxed">
+                    I architect optimized GPU deployment pipelines that balance
+                    speed, cost, and reliability for model inference and
+                    training workloads. I apply techniques such as model
+                    quantization, tensor parallelism, batching, and GPU memory
+                    optimization to reduce resource footprint without
+                    sacrificing accuracy. I design autoscaling GPU clusters or
+                    on-demand GPU execution paths to avoid paying for idle
+                    hardware. I containerize models using best practices
+                    (CUDA/toolkit alignment, optimized runtimes, efficient I/O)
+                    and integrate them with orchestration frameworks like ECS,
+                    Kubernetes, or Modal. Finally, I implement performance
+                    monitoring and profiling so your team can continuously track
+                    latency, throughput, and GPU utilization for predictable,
+                    efficient operation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5 — Bioinformatics Data Engineering -->
+          <div class="solution-card reveal" style="--reveal-i: 4">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h2 class="text-2xl font-bold text-white mb-4">
+                Bioinformatics Data Engineering
+              </h2>
+              <p class="text-s text-blue-300 mb-6">
+                Build Reliable Biological Data Infrastructure Without Fragile
+                Data Pipelines
+              </p>
+
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Biological research increasingly depends on large and diverse
+                datasets &mdash; including sequencing outputs, metadata,
+                clinical information, experimental results, and public reference
+                databases. However, these data are often scattered across
+                disconnected systems, inconsistent file formats, or ad-hoc
+                storage locations. Data ingestion and integration frequently
+                rely on manual scripts or poorly documented processes, making
+                workflows fragile, slow to query, and prone to errors as
+                datasets grow.
+              </p>
+
+              <div class="solution-toggle" style="margin-top: 1.25rem">
+                <p
+                  class="text-xs font-bold text-blue-300 uppercase tracking-wide mb-3"
+                >
+                  My Solution
+                </p>
+                <div class="solution-content">
+                  <p class="text-slate-300 text-sm leading-relaxed">
+                    I design and implement robust data engineering architectures
+                    tailored to biological research environments. I build
+                    automated pipelines that ingest data from sequencing
+                    instruments, external databases, and internal systems while
+                    validating and standardizing formats. I design scalable
+                    storage layers and structured data models that support
+                    efficient querying and downstream analysis. Where
+                    appropriate, I implement data lakes, analytical warehouses,
+                    or graph-based systems for complex biological queries. I
+                    also establish versioning, provenance tracking, and
+                    automated validation so datasets remain consistent,
+                    traceable, and reproducible over time &mdash; creating a
+                    reliable data foundation for scientists and AI systems.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6 — Workflow Observability & Monitoring -->
+          <div class="solution-card reveal" style="--reveal-i: 5">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h2 class="text-2xl font-bold text-white mb-4">
+                Workflow Observability &amp; Monitoring
+              </h2>
+              <p class="text-s text-blue-300 mb-6">
+                Keep Pipelines Reliable Without Constant Manual Debugging
+              </p>
+
+              <p class="text-slate-300 text-sm leading-relaxed">
+                As computational pipelines grow in complexity, failures can
+                become difficult to detect and diagnose. Logs may be scattered
+                across multiple systems, errors may appear hours after the root
+                cause occurred, and teams often rely on manual inspection to
+                understand why workflows failed or slowed down. Without proper
+                monitoring and observability, pipeline issues can silently waste
+                compute resources, delay analyses, and force engineers to spend
+                valuable time debugging instead of advancing research.
+              </p>
+
+              <div class="solution-toggle" style="margin-top: 1.25rem">
+                <p
+                  class="text-xs font-bold text-blue-300 uppercase tracking-wide mb-3"
+                >
+                  My Solution
+                </p>
+                <div class="solution-content">
+                  <p class="text-slate-300 text-sm leading-relaxed">
+                    I implement observability systems that provide real-time
+                    visibility into bioinformatics pipelines and cloud
+                    infrastructure. I integrate centralized logging, metrics
+                    collection, and distributed tracing so teams can quickly
+                    detect failures, identify performance bottlenecks, and
+                    understand system behavior across workflows and services. I
+                    configure monitoring dashboards, automated alerts, and
+                    health checks that proactively notify teams when pipelines
+                    fail, stall, or exceed expected runtimes. I also instrument
+                    workflows and infrastructure with structured logging and
+                    telemetry so root causes can be diagnosed quickly. The
+                    result is a transparent and reliable execution environment
+                    where pipeline issues are detected early and resolved
+                    efficiently, keeping research workflows running smoothly.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7 — Cloud Cost Optimization -->
+          <div class="solution-card reveal" style="--reveal-i: 6">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h2 class="text-2xl font-bold text-white mb-4">
+                Cloud Cost Optimization
+              </h2>
+              <p class="text-s text-blue-300 mb-6">
+                Cut Your AWS/GCP Bill Without Hurting Pipeline Throughput
+              </p>
+
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Many biotech and computational labs run cloud infrastructure at
+                scale, but often rack up unexpectedly high costs from
+                over-provisioned resources, idle instances, or poorly optimized
+                storage and workflows. Without careful configuration and ongoing
+                oversight, monthly AWS costs can spike without warning,
+                diverting budget away from core research. This makes it hard for
+                teams to scale research workloads without over-investing in
+                infrastructure.
+              </p>
+
+              <div class="solution-toggle" style="margin-top: 1.25rem">
+                <p
+                  class="text-xs font-bold text-blue-300 uppercase tracking-wide mb-3"
+                >
+                  My Solution
+                </p>
+                <div class="solution-content">
+                  <p class="text-slate-300 text-sm leading-relaxed">
+                    I analyse your existing cloud usage and architecture to
+                    identify inefficiencies &mdash; such as under-utilized
+                    compute instances, oversized storage volumes, or unnecessary
+                    continuous uptime &mdash; and recommend right-sizing,
+                    resource scheduling, and safe removal of unneeded resources.
+                    I implement automated monitoring and cost-alerting (e.g. via
+                    budgets, usage dashboards, and usage-based triggers) to
+                    maintain accountability and prevent surprises. I can also
+                    help to restructure workflows to leverage serverless,
+                    on-demand, or batch compute models where applicable,
+                    reducing idle-time costs. For long-term commitments, I
+                    assess and configure reserved instances or savings plans to
+                    lock in discounted rates without sacrificing flexibility. As
+                    a result, you regain control over cloud costs and avoid
+                    unexpected budget overruns while your teams scale research
+                    with confidence.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8 — HPC & Cloud Pipeline Engineering -->
+          <div class="solution-card reveal" style="--reveal-i: 7">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h2 class="text-2xl font-bold text-white mb-4">
+                HPC &amp; Cloud Pipeline Engineering
+              </h2>
+              <p class="text-s text-blue-300 mb-6">
+                Run Bioinformatics Pipelines Without Infrastructure Complexity
+              </p>
+
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Modern bioinformatics pipelines often require significant
+                compute resources, including large CPU clusters, high-memory
+                nodes, or GPU acceleration. However, configuring and managing
+                these environments &mdash; whether on HPC clusters or cloud
+                platforms &mdash; can be difficult and time-consuming. Pipelines
+                may fail due to resource misconfiguration, inefficient
+                scheduling, or incompatible environments. Teams frequently
+                struggle with scaling workloads reliably, optimizing
+                performance, or moving pipelines between HPC systems and cloud
+                infrastructure.
+              </p>
+
+              <div class="solution-toggle" style="margin-top: 1.25rem">
+                <p
+                  class="text-xs font-bold text-blue-300 uppercase tracking-wide mb-3"
+                >
+                  My Solution
+                </p>
+                <div class="solution-content">
+                  <p class="text-slate-300 text-sm leading-relaxed">
+                    I design and implement scalable execution environments for
+                    bioinformatics pipelines across HPC and cloud platforms. I
+                    containerize workflows and integrate them with workflow
+                    orchestration frameworks such as Nextflow or Snakemake to
+                    ensure reproducible execution across environments. I
+                    configure job scheduling, resource allocation, and
+                    parallelization strategies so pipelines efficiently utilize
+                    available compute resources. For cloud environments, I
+                    architect elastic compute infrastructure that automatically
+                    scales with workload demand while controlling costs. I also
+                    implement environment management, data staging, and
+                    performance optimization to ensure pipelines run reliably
+                    and efficiently. The result is a robust execution platform
+                    where large-scale bioinformatics workflows run consistently
+                    across HPC and cloud systems, enabling research teams to
+                    process data faster and scale analyses with confidence.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="max-w-7xl mx-auto mb-10">
+        <div class="glass-card rounded-3xl p-8 md:p-12 text-center reveal">
+          <h2 class="text-3xl font-bold text-white mb-8">
+            Let’s Talk About Your Project
+          </h2>
+
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="home.html#book"
+              class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-full font-bold transition-transform transform hover:scale-105 shadow-lg shadow-blue-500/20"
+            >
+              Book a Free Consultation
+            </a>
+            <a
+              href="mailto:contact@martonmunz.com?subject=Project%20inquiry"
+              class="px-6 py-3 rounded-full border border-white/20 text-white font-medium hover:bg-white/5 transition-colors"
+            >
+              Send an email
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 py-12 bg-slate-950">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <div class="text-slate-500 text-sm">
+          &copy; <span id="year"></span> Márton Münz
+        </div>
+        <div class="flex gap-6 text-sm font-medium text-slate-400">
+          <a
+            href="mailto:contact@martonmunz.com"
+            class="hover:text-white transition-colors"
+            >Email</a
+          >
+          <a
+            href="https://www.linkedin.com/in/marton-munz-phd"
+            target="_blank"
+            class="hover:text-white transition-colors"
+            >LinkedIn</a
+          >
+          <a href="faq.html" class="hover:text-white transition-colors">FAQ</a>
+          <a href="testimonials.html" class="hover:text-white transition-colors"
+            >Testimonials</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Scroll-reveal with Intersection Observer
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => revealObserver.observe(el));
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileNav = document.getElementById("mobileNav");
+      menuBtn.addEventListener("click", () => {
+        mobileNav.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>

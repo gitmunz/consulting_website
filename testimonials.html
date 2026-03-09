@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Production Science | Testimonials</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      body {
+        background-color: #020617;
+        font-family: "Inter", sans-serif;
+        color: #f1f5f9;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+
+      .bg-glow {
+        position: fixed;
+        top: -10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120vw;
+        height: 800px;
+        background: radial-gradient(
+          circle at 50% 0%,
+          rgba(37, 99, 235, 0.12) 0%,
+          rgba(37, 99, 235, 0.05) 30%,
+          rgba(2, 6, 23, 0) 70%
+        );
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .glass-card {
+        background: rgba(15, 23, 42, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(16px);
+        border-radius: 24px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .glass-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.1) 0%,
+          transparent 100%
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .glass-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(59, 130, 246, 0.3);
+        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+      }
+
+      .glass-card:hover::before {
+        opacity: 1;
+      }
+
+      .fade-in-up {
+        opacity: 0;
+        animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .dot-overlay {
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px
+        );
+        background-size: 32px 32px;
+        z-index: -1;
+      }
+
+      .quote-icon {
+        color: rgba(59, 130, 246, 0.2);
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen selection:bg-blue-500/30">
+    <div class="bg-glow"></div>
+    <div class="dot-overlay"></div>
+
+    <main
+      class="flex flex-col items-center justify-start min-h-screen p-6 pt-12 md:pt-20 pb-24"
+    >
+      <div class="max-w-3xl w-full">
+        <a
+          href="home.html"
+          class="inline-flex items-center space-x-2 text-slate-400 hover:text-blue-400 transition-colors font-medium text-sm mb-12 fade-in-up group"
+        >
+          <i
+            data-lucide="arrow-left"
+            class="w-4 h-4 transition-transform group-hover:-translate-x-1"
+          ></i>
+          <span>Home</span>
+        </a>
+
+        <div class="mb-16 fade-in-up">
+          <h1
+            class="text-4xl md:text-5xl font-extrabold mb-12 leading-tight fade-in-up tracking-tight"
+          >
+            Client <br />
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400"
+              >Testimonials</span
+            >
+          </h1>
+        </div>
+
+        <div class="space-y-8">
+          <div
+            class="glass-card p-8 md:p-12 fade-in-up"
+            style="animation-delay: 0.1s"
+          >
+            <i data-lucide="quote" class="quote-icon w-16 h-16"></i>
+            <p
+              class="text-lg text-slate-100 leading-relaxed mb-6 font-light italic"
+            >
+              "I had the good fortune to work with Marton for several years on
+              several projects. He has a rare ability to design complex, highly
+              effective and efficient code that delivers exactly what is needed.
+              Even rarer is his ability to communicate effortlessly with
+              everyone; coders, scientists and clinicians. He takes the time to
+              understand what is needed and then makes it happen, usually giving
+              you solutions beyond your dreams. And his work is always
+              comprehensively detailed and his software is always a delight to
+              use. Marton's contributions to our disease gene discovery and
+              translation projects were vital to our successes."
+            </p>
+            <div
+              class="flex items-center space-x-5 border-t border-white/5 pt-6"
+            >
+              <div>
+                <p class="text-white font-bold text-lg">
+                  Nazneen Rahman, MD PhD
+                </p>
+                <p class="text-sm text-blue-400 font-medium">
+                  Professor of Human Genetics, Institute of Cancer Research
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-slate-400 text-lg max-w-2xl">
+            To preserve confidentiality, the following testimonials have been
+            anonymized:
+          </p>
+
+          <div class="grid grid-cols-1 gap-8">
+            <div
+              class="glass-card p-8 fade-in-up"
+              style="animation-delay: 0.2s"
+            >
+              <p class="text-lg text-slate-200 leading-relaxed mb-6 italic">
+                "Working with Márton was an absolute pleasure. His
+                bioinformatics expertise and analytical insight consistently
+                delivered effective analyses for our research in a timely
+                manner. He demonstrated excellent problem-solving ability and
+                wrote clean, well-documented code that was easy to build upon,
+                and effectively displayed results to the biology team. He
+                brought not only technical skill but also a collaborative spirit
+                and professionalism to our collaborations. I highly recommend
+                Márton to anyone looking for a top-tier bioinformaticist."
+              </p>
+              <div
+                class="flex items-center space-x-4 border-t border-white/5 pt-6"
+              >
+                <div>
+                  <p class="text-white font-bold">Anonymous testimonial</p>
+                  <p class="text-sm text-blue-400 font-medium">
+                    CEO, US biotech company
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="glass-card p-8 fade-in-up"
+              style="animation-delay: 0.3s"
+            >
+              <p class="text-lg text-slate-200 leading-relaxed mb-6 italic">
+                "I’ve had the privilege of working with Márton Münz over the
+                past five years across both academic and startup environments,
+                during which he has consistently demonstrated outstanding
+                expertise, professionalism, and a deep understanding of our
+                scientific goals. Márton provided reliable support for our AWS
+                servers, ensuring they were well-maintained, secure, and
+                optimized for our bioinformatics workflows. He led multiple
+                RNA-sequencing projects from raw data processing through to
+                differential expression analysis, and developed a custom online
+                database that seamlessly integrates our gene panels with
+                experimental results. Márton consistently delivered high-quality
+                work on time and with clear, effective communication. I have no
+                doubt that his new consultancy will uphold the same high
+                standards and collaborative approach, making him a valuable
+                partner for any future client."
+              </p>
+              <div
+                class="flex items-center space-x-4 border-t border-white/5 pt-6"
+              >
+                <div>
+                  <p class="text-white font-bold">Anonymous testimonial</p>
+                  <p class="text-sm text-blue-400 font-medium">
+                    Head of Science and Co-Founder, UK biotech company
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="glass-card p-8 fade-in-up"
+              style="animation-delay: 0.3s"
+            >
+              <p class="text-lg text-slate-200 leading-relaxed mb-6 italic">
+                "We really enjoyed working with Márton in our company. During
+                his time supporting our bioinformatics and IT teams, Márton
+                played a crucial role in improving our data infrastructure. He
+                swiftly took over responsibilities, resolved critical
+                bottlenecks in our sequencing and imaging data pipelines, and
+                introduced optimizations that significantly improved AWS and
+                Google Drive workflows. His proactive identification of a costly
+                S3 logging feedback loop and his thoughtful contributions to
+                pipeline troubleshooting, AWS Batch customization, and database
+                design were particularly impactful. Beyond his technical skill,
+                he was collaborative, dependable, and a real pleasure to work
+                with."
+              </p>
+              <div
+                class="flex items-center space-x-4 border-t border-white/5 pt-6"
+              >
+                <div>
+                  <p class="text-white font-bold">Anonymous testimonial</p>
+                  <p class="text-sm text-blue-400 font-medium">
+                    CSO, UK biotech company
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="glass-card p-8 fade-in-up"
+              style="animation-delay: 0.3s"
+            >
+              <p class="text-lg text-slate-200 leading-relaxed mb-6 italic">
+                "Márton is an exceptional bioinformatics scientist and
+                consultant. His vast knowledge, problem-solving skills, and
+                genuine care for quality work sets him apart in the field.
+                During our collaboration, Márton consistently demonstrated his
+                ability to tackle complex computational and biological
+                challenges with innovative solutions. His expertise was
+                particularly valuable when he helped our immuno-oncology team
+                resolve issues with a complex Nextflow pipeline on AWS,
+                showcasing his versatility and deep understanding of both
+                computational tools and biological concepts. Márton's dedication
+                to mentoring, combined with his eclectic experience and
+                enthusiasm for new challenges, makes him an invaluable asset to
+                any project. His ability to inspire others and deliver
+                high-quality results makes him the ideal consultant for
+                organizations seeking top-tier bioinformatics expertise."
+              </p>
+              <div
+                class="flex items-center space-x-4 border-t border-white/5 pt-6"
+              >
+                <div>
+                  <p class="text-white font-bold">Anonymous testimonial</p>
+                  <p class="text-sm text-blue-400 font-medium">
+                    Principal Scientist, US biotech company
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="glass-card p-8 fade-in-up"
+              style="animation-delay: 0.3s"
+            >
+              <p class="text-lg text-slate-200 leading-relaxed mb-6 italic">
+                "I have worked closely with Marton for over 2 years. He is very
+                enthusiastic and eager to take on a challenge. We have worked on
+                some fairly complicated projects, such as RNA-Seq dose-response
+                analysis, and Marton has delivered an excellent report that
+                helped us make sound decisions. Marton also has a breadth of
+                experience that goes beyond expression analysis. Whether it is a
+                simple graph or sequence analysis, I got used to working with
+                Marton and relying on him."
+              </p>
+              <div
+                class="flex items-center space-x-4 border-t border-white/5 pt-6"
+              >
+                <div>
+                  <p class="text-white font-bold">Anonymous testimonial</p>
+                  <p class="text-sm text-blue-400 font-medium">
+                    Vice President, Head of Computational Biology, US biotech
+                    company
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="glass-card p-8 fade-in-up"
+              style="animation-delay: 0.3s"
+            >
+              <p class="text-lg text-slate-200 leading-relaxed mb-6 italic">
+                "We worked with Marton on a bioinformatics project during the
+                early days of the company when we needed to build a database and
+                bioinformatics tools to perform dry lab research. As our team
+                was very lean and we did not have in-house bioinformatics
+                capabilities, we relied heavily on Marton's expertise and advice
+                to execute the project. Marton was very responsive,
+                knowledgeable and offered helpful suggestions to implement the
+                necessary functions that we required for our work. He also
+                ensured that we were able to access and use the resources on our
+                own after the project was completed."
+              </p>
+              <div
+                class="flex items-center space-x-4 border-t border-white/5 pt-6"
+              >
+                <div>
+                  <p class="text-white font-bold">Anonymous testimonial</p>
+                  <p class="text-sm text-blue-400 font-medium">
+                    Director, Singapore biotech company
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="glass-card p-8 fade-in-up"
+              style="animation-delay: 0.3s"
+            >
+              <p class="text-lg text-slate-200 leading-relaxed mb-6 italic">
+                "I had the pleasure to work with Marton on a very novel analysis
+                of large genomic datasets, and he was a total pleasure to
+                interact with. Creative, committed, and diligent — Marton is a
+                model of what a biologist is looking for in a true
+                bioinformatics partner!"
+              </p>
+              <div
+                class="flex items-center space-x-4 border-t border-white/5 pt-6"
+              >
+                <div>
+                  <p class="text-white font-bold">Anonymous testimonial</p>
+                  <p class="text-sm text-blue-400 font-medium">
+                    Co-Founder and CSO, US biotech company
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="glass-card p-8 fade-in-up"
+              style="animation-delay: 0.3s"
+            >
+              <p class="text-lg text-slate-200 leading-relaxed mb-6 italic">
+                "Marton handled all of the bioinformatics on the initial
+                single-cell gene expression we were doing to characterize rare
+                cells of interest. He handled all of the intial processing of
+                10X Genomics Chromium NGS data, and was easy to collaborate with
+                to adjust the pipeline to sensitively detect and accurately
+                characterize very rare cells in the single cell populations. He
+                also set up cloud infrastructure for data storage and transfer,
+                and authored pipelines for genomewide variant detection to
+                distinguish rare cell and common cell genotypes. This work
+                required modifying the standard pipelines in use at the
+                beginning of the single cell gene expression era, both because
+                of the extreme rarity of the cells of interest and also because
+                of our desire to use genotype identification in parallel with
+                gene expression analysis to confirm the rare cell identity of
+                differential gene expression. Marton eagerly, creatively and
+                interactively addressed these challenges to help us successfully
+                get our early first look at the rare cell expression profiles,
+                and he was always intellectually engaged and a valued member of
+                our effort."
+              </p>
+              <div
+                class="flex items-center space-x-4 border-t border-white/5 pt-6"
+              >
+                <div>
+                  <p class="text-white font-bold">Anonymous testimonial</p>
+                  <p class="text-sm text-blue-400 font-medium">
+                    Cellular and Molecular Lead for a US rare cell diagnostics
+                    startup company
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="glass-card p-8 fade-in-up"
+              style="animation-delay: 0.3s"
+            >
+              <p class="text-lg text-slate-200 leading-relaxed mb-6 italic">
+                "Finding the right balance of internal compbio capabilities with
+                bringing in contractors can be tough. It requires contractors to
+                quickly assimilate into internal workflows and to bring their
+                own thoughts alongside delivering to tight timelines. We've
+                enjoyed working with Marton for being great at these!"
+              </p>
+              <div
+                class="flex items-center space-x-4 border-t border-white/5 pt-6"
+              >
+                <div>
+                  <p class="text-white font-bold">Anonymous testimonial</p>
+                  <p class="text-sm text-blue-400 font-medium">
+                    Founder and CSO, UK biotech company
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-20 pt-12 border-t border-white/5 text-center fade-in-up"
+          style="animation-delay: 0.5s"
+        >
+          <p class="text-slate-400 mb-4">Interested in my services?</p>
+          <a
+            href="mailto:contact@productionscience.com"
+            class="text-blue-400 hover:text-white transition-colors font-semibold"
+            >Get in touch →</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

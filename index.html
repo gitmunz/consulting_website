@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Márton Münz, PhD — Computational Biology, Cloud & ML/AI Consulting
+    </title>
+    <meta
+      name="description"
+      content="Production-grade bioinformatics, AI, and cloud systems for biotech teams. NGS pipelines, MLOps, secure cloud infrastructure, and LLM workflows."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #020617;
+        font-family: "Inter", sans-serif;
+        color: #f1f5f9;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      .brand-font {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+
+      /* Background Glow Effect */
+      .bg-glow {
+        position: fixed;
+        top: -10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: 800px;
+        background: radial-gradient(
+          circle at 50% 0%,
+          rgba(37, 99, 235, 0.15) 0%,
+          rgba(2, 6, 23, 0) 70%
+        );
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      /* Dot Pattern Overlay */
+      .dot-overlay {
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px
+        );
+        background-size: 24px 24px;
+        z-index: -1;
+      }
+
+      /* Glassmorphism Card Style */
+      .glass-card {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      }
+
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      /* Animations */
+      .fade-in-up {
+        opacity: 0;
+        animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Typography Accents */
+      .text-gradient {
+        background: linear-gradient(to right, #60a5fa, #818cf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .text-myname {
+        background: #818cf8;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .emphasis {
+        color: #60a5fa;
+        font-weight: 600;
+      }
+
+      /* Custom Lists */
+      ul.feature-list li {
+        padding-left: 1.5rem;
+        position: relative;
+        margin-bottom: 0.5rem;
+        color: #cbd5e1;
+      }
+
+      ul.feature-list li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: #3b82f6;
+        font-weight: bold;
+      }
+
+
+      /* Scroll-triggered reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+          transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Stagger children inside a reveal-group */
+      .reveal-group .reveal {
+        transition-delay: calc(var(--reveal-i, 0) * 120ms);
+      }
+
+      /* Delay utilities for animation staggering */
+      .delay-100 {
+        animation-delay: 100ms;
+      }
+      .delay-200 {
+        animation-delay: 200ms;
+      }
+      .delay-300 {
+        animation-delay: 300ms;
+      }
+      /* Solution card design */
+      .solution-card {
+        background: rgba(15, 23, 42, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 1rem;
+        overflow: hidden;
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s,
+          transform 0.3s;
+      }
+
+      .solution-card:hover {
+        border-color: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+        transform: translateY(-2px);
+      }
+
+      .solution-card .card-accent {
+        height: 3px;
+      }
+
+      .solution-card .card-body {
+        padding: 1.75rem;
+      }
+
+      /* Offset anchor scroll positions to account for fixed header */
+      :root {
+        /* adjust to your real header height (px). add a bit of extra breathing room */
+        --header-offset: 110px;
+      }
+
+      section[id] {
+        scroll-margin-top: var(--header-offset);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen selection:bg-blue-500/30">
+    <div class="bg-glow"></div>
+    <div class="dot-overlay"></div>
+
+    <header
+      id="siteHeader"
+      class="fixed top-0 w-full z-50 glass-nav transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-1 py-4">
+        <div class="flex items-center justify-between">
+          <a class="flex flex-col group" href="#top" aria-label="Home">
+            <strong
+              class="text-slate-500 text-lg brand-font tracking-tight group-hover:text-blue-600 transition-colors"
+              >Márton Münz, PhD</strong
+            >
+            <span class="text-xs text-slate-900"
+              >Computational Biology • Cloud • ML/AI Consulting</span
+            >
+          </a>
+
+          <button
+            id="menuBtn"
+            class="md:hidden px-4 py-2 border border-slate-300 rounded-full text-sm text-slate-700 bg-slate-100 hover:bg-slate-200"
+          >
+            Menu
+          </button>
+
+          <nav class="hidden md:flex items-center gap-8">
+            <ul class="flex gap-6 text-md text-slate-500 font-medium list-none">
+              <li>
+                <a
+                  href="index.html#services"
+                  class="hover:text-slate-900 transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#case-studies"
+                  class="hover:text-slate-900 transition-colors"
+                  >About me</a
+                >
+              </li>
+              <li>
+                <a
+                  href="testimonials.html"
+                  class="hover:text-slate-900 transition-colors"
+                  >Testimonials</a
+                >
+              </li>
+              <li>
+                <a
+                  href="faq.html"
+                  class="hover:text-slate-900 transition-colors"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+
+            <div class="flex gap-4 items-center pl-4 border-l border-slate-200">
+              <a
+                href="mailto:contact@martonmunz.com?subject=Project%20inquiry"
+                class="text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                >Email</a
+              >
+              <a
+                href="#book"
+                id="bookTop"
+                class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-lg shadow-blue-900/20"
+                >Book a call</a
+              >
+            </div>
+          </nav>
+        </div>
+
+        <nav
+          id="mobileNav"
+          class="hidden pt-4 pb-2 md:hidden border-t border-slate-200 mt-4"
+        >
+          <ul class="flex flex-col gap-3 text-sm text-slate-600 list-none">
+            <li><a href="#services" class="block py-2">Services</a></li>
+            <li><a href="#case-studies" class="block py-2">Case Studies</a></li>
+            <li><a href="#testimonials" class="block py-2">Testimonials</a></li>
+            <li><a href="faq.html" class="block py-2">FAQ</a></li>
+            <li>
+              <a href="#book" class="block py-2 text-blue-400 font-bold"
+                >Book a call</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top" class="pt-28 pb-20 px-6">
+      <section class="max-w-7xl mx-auto mb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-8 fade-in-up">
+            <div
+              class="inline-flex items-center gap-2 px-1 py-2 rounded-full bg-slate-900/50 border border-white/10 text-xs text-blue-300 font-medium mb-6"
+            >
+              <span
+                >Multiomics (NGS) • Cloud Architecture (AWS/GCP) • ML & AI
+                Systems Engineering • DevOps</span
+              >
+            </div>
+
+            <h1
+              class="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6 tracking-tight"
+            >
+              Cloud-Native Bioinformatics Pipelines & Infrastructure<br />
+              for
+
+              <span class="text-gradient">AI-Driven Discovery </span>
+            </h1>
+
+            <p class="text-lg text-slate-300 leading-relaxed max-w-4xl mb-8">
+              I design and implement purpose-built, reproducible pipelines and
+              GPU-accelerated infrastructure for computational biology teams —
+              architecting scalable cloud platforms and delivering rigorous
+              end-to-end analysis, from NGS workflows to large-scale AI systems.
+            </p>
+
+            <div class="flex flex-wrap gap-4 mb-10">
+              <a
+                href="#book"
+                id="bookHero"
+                class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-full font-bold transition-transform transform hover:scale-105 shadow-lg shadow-blue-500/20"
+              >
+                Book an Intro Call
+              </a>
+              <a
+                href="#case-studies"
+                class="px-6 py-3 rounded-full border border-white/20 text-white font-medium hover:bg-white/5 transition-colors"
+              >
+                Read the FAQ
+              </a>
+              <a
+                href="mailto:contact@martonmunz.com?subject=Capabilities%20deck%20request"
+                class="px-6 py-3 rounded-full border border-white/20 text-white font-medium hover:bg-white/5 transition-colors"
+              >
+                Request Full CV
+              </a>
+            </div>
+
+            <div
+              class="glass-card p-6 rounded-2xl border-l-4 border-l-blue-500"
+            >
+              <ul class="feature-list space-y-2 text-sm">
+                <h3 class="text-xl font-bold text-white mb-6">Background</h3>
+                <li>
+                  PhD, University of Oxford; Postdoctoral Researcher, Wellcome
+                  Centre for Human Genetics
+                </li>
+                <li>
+                  Consultant, The Institute of Cancer Research (ICR), London
+                </li>
+                <li>
+                  Senior Scientist & IT Director, The Bioinformatics CRO -
+                  supporting 20+ biotech and research clients
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <aside class="lg:col-span-4 fade-in-up delay-200">
+            <div class="glass-card rounded-2xl p-6">
+              <h3 class="text-xl font-bold text-white mb-3">Explore</h3>
+
+              <div class="space-y-3">
+                <a
+                  href="#testimonials"
+                  class="flex justify-between items-center p-3 rounded-xl bg-slate-900/40 border border-white/5 hover:border-blue-500/30 transition-colors text-sm text-slate-200"
+                >
+                  What Clients Say
+                  <span class="text-xs text-slate-500 uppercase"
+                    >Testimonials</span
+                  >
+                </a>
+
+                <a
+                  href="solutions.html"
+                  class="flex justify-between items-center p-3 rounded-xl bg-slate-900/40 border border-white/5 hover:border-blue-500/30 transition-colors text-sm text-slate-200"
+                >
+                  Example Solutions
+                  <span class="text-xs text-slate-500 uppercase"
+                    >Solutions</span
+                  >
+                </a>
+
+                <a
+                  href="agentic.html"
+                  class="flex justify-between items-center p-3 rounded-xl bg-slate-900/40 border border-white/5 hover:border-blue-500/30 transition-colors text-sm text-slate-200"
+                >
+                  Custom-bulit AI agents
+                  <span class="text-xs text-slate-500 uppercase">Agents</span>
+                </a>
+
+                <a
+                  href="#testimonials"
+                  class="flex justify-between items-center p-3 rounded-xl bg-slate-900/40 border border-white/5 hover:border-blue-500/30 transition-colors text-sm text-slate-200"
+                >
+                  Pricing
+                  <span class="text-xs text-slate-500 uppercase">FAQ</span>
+                </a>
+
+                <a
+                  href="#testimonials"
+                  class="flex justify-between items-center p-3 rounded-xl bg-slate-900/40 border border-white/5 hover:border-blue-500/30 transition-colors text-sm text-slate-200"
+                >
+                  Security & compliance
+                  <span class="text-xs text-slate-500 uppercase">FAQ</span>
+                </a>
+              </div>
+
+              <div class="mt-6 pt-6 border-t border-white/10">
+                <strong class="block text-white text-lg mb-2">Ideal for</strong>
+                <p class="text-sm text-slate-300">
+                  Biological research teams seeking expert support in
+                  bioinformatics analysis and in the design, build-out, and
+                  operation of secure, scalable, cloud-native computational
+                  biology infrastructure.
+                </p>
+              </div>
+
+              <hr class="border-white/30 mt-14 mb-6" />
+              <p class="text-slate-300 text-sm mb-6">
+                Questions? Write to
+                <a
+                  href="mailto:contact@martonmunz.com"
+                  class="text-blue-300 hover:underline"
+                  >contact@martonmunz.com</a
+                >
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="services" class="max-w-7xl mx-auto mb-32">
+        <div class="mb-12 reveal">
+          <h2 class="text-3xl font-bold text-white mb-4">Services</h2>
+          <p>... core services ...</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-group">
+          <div class="solution-card reveal" style="--reveal-i: 0">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h3 class="text-xl font-bold text-white mb-4">
+                NGS Data Analysis
+              </h3>
+              <p class="text-slate-300 text-md">
+                WES, WGS, RNA-seq, scRNA-seq, ATAC-seq, ChIP-seq, spatial
+                transcriptomics, and other high-throughput sequencing analyses
+              </p>
+            </div>
+          </div>
+
+          <div class="solution-card reveal" style="--reveal-i: 1">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h3 class="text-xl font-bold text-white mb-4">
+                Machine Learning
+              </h3>
+              <p class="text-slate-300 text-md">
+                Deep learning model development, PyTorch training and
+                fine-tuning, GPU-accelerated inference, classical ML,
+                statistical modeling
+              </p>
+            </div>
+          </div>
+
+          <div class="solution-card reveal" style="--reveal-i: 2">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h3 class="text-xl font-bold text-white mb-4">
+                Cloud Architecture & Engineering
+              </h3>
+              <p class="text-slate-300 text-md">
+                Building scalable, secure, and cost-efficient AWS or Google
+                Cloud infrastructure for biological data and compute workloads
+              </p>
+            </div>
+          </div>
+
+          <div class="solution-card reveal" style="--reveal-i: 3">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h3 class="text-xl font-bold text-white mb-4">
+                LLM-Powered Pipelines
+              </h3>
+              <p class="text-slate-300 text-md">
+                Agentic workflows, custom RAG systems, private LLM deployment,
+                MCP servers, knowledge graphs, and more.
+              </p>
+            </div>
+          </div>
+
+          <div class="solution-card reveal" style="--reveal-i: 4">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h3 class="text-xl font-bold text-white mb-4">
+                Bioinformatics Pipelines
+              </h3>
+              <p class="text-slate-300 text-md">
+                Designing and implementing reproducible Nextflow or Snakemake
+                workflows for scalable bioinformatics analysis
+              </p>
+            </div>
+          </div>
+
+          <div class="solution-card reveal" style="--reveal-i: 5">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h3 class="text-xl font-bold text-white mb-4">
+                Data Engineering
+              </h3>
+              <p class="text-slate-300 text-md">
+                Data pipelines for large-scale biological datasets, data
+                modeling, SQL/NoSQL/graph databases, data lakes, and API design
+              </p>
+            </div>
+          </div>
+
+          <div class="solution-card reveal" style="--reveal-i: 6">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h3 class="text-xl font-bold text-white mb-4">
+                Full Stack Software Development
+              </h3>
+              <p class="text-slate-300 text-md">
+                Web applications for processing, visualizing, and interacting
+                with biological data
+              </p>
+            </div>
+          </div>
+
+          <div class="solution-card reveal" style="--reveal-i: 7">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h3 class="text-xl font-bold text-white mb-4">
+                DevOps Engineering & Support
+              </h3>
+              <p class="text-slate-300 text-md">
+                Cloud deployment of data-intensive applications, Terraform,
+                Kubernetes, Helm charts, observability and more.
+              </p>
+            </div>
+          </div>
+
+          <div class="solution-card reveal" style="--reveal-i: 7">
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h3 class="text-xl font-bold text-white mb-4">Blabla bla</h3>
+              <p class="text-slate-300 text-md">
+                Deployment of data-intensive applications in the cloud;
+                monitoring and logging bioinformatics workflows, containerizing
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" class="max-w-7xl mx-auto mb-32">
+        <div class="mb-12 flex justify-between items-baseline reveal">
+          <h2 class="text-3xl font-bold text-white">What Clients Say</h2>
+          <a
+            href="testimonials.html"
+            class="text-sm text-blue-300 hover:text-white transition-colors"
+            >View all →</a
+          >
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-group">
+          <div
+            class="glass-card rounded-2xl p-8 flex flex-col justify-between reveal"
+            style="--reveal-i: 0"
+          >
+            <p class="text-slate-300 mb-6">
+              "He has a rare ability to design complex, highly effective code.
+              His work is always comprehensively detailed and his software is
+              always a delight to use. Márton's contributions to our disease
+              gene discovery and translation projects were vital to our
+              successes."
+            </p>
+            <footer
+              class="text-xs font-bold text-slate-400 uppercase border-t border-white/10 pt-4"
+            >
+              Nazneen Rahman, MD PhD — ICR, London
+            </footer>
+          </div>
+          <div
+            class="glass-card rounded-2xl p-8 flex flex-col reveal"
+            style="--reveal-i: 1"
+          >
+            <p class="text-slate-300 mb-6">
+              "He swiftly took over responsibilities, resolved critical
+              bottlenecks and introduced optimizations. Beyond his technical
+              skill, he was collaborative, dependable, and a real pleasure to
+              work with."
+            </p>
+            <p
+              class="text-xs font-bold text-slate-400 uppercase border-t border-white/10 pt-4"
+            >
+              CSO, UK biotech company
+            </p>
+          </div>
+          <div
+            class="glass-card rounded-2xl p-8 flex flex-col reveal"
+            style="--reveal-i: 2"
+          >
+            <p class="text-slate-300 mb-6">
+              "Creative, committed, and diligent — Márton is a model of what a
+              biologist is looking for in a true bioinformatics partner."
+            </p>
+            <footer
+              class="text-xs font-bold text-slate-400 uppercase border-t border-white/10 pt-4"
+            >
+              Co-Founder and CSO, US biotech company
+            </footer>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto mb-32">
+        <h2 class="text-3xl font-bold text-white mb-12 text-left reveal">
+          Working together
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 reveal-group">
+          <div
+            class="glass-card rounded-2xl p-6 relative overflow-hidden reveal"
+            style="--reveal-i: 0"
+          >
+            <div
+              class="absolute -right-4 -top-4 text-9xl font-bold text-slate-500 select-none pointer-events-none z-0"
+            >
+              1
+            </div>
+            <h4 class="relative z-10 text-lg font-bold text-blue-300 mb-2">
+              Initial Consult
+            </h4>
+            <p class="relative z-10 text-slate-300 text-sm">
+              30 minutes to understand goals, constraints, timelines, and
+              existing tooling.
+            </p>
+          </div>
+          <div
+            class="glass-card rounded-2xl p-6 relative overflow-hidden reveal"
+            style="--reveal-i: 1"
+          >
+            <div
+              class="absolute -right-4 -top-4 text-9xl font-bold text-slate-500 select-none pointer-events-none z-0"
+            >
+              2
+            </div>
+            <h4 class="relative z-10 text-lg font-bold text-blue-300 mb-2">
+              Proposal & Plan
+            </h4>
+            <p class="relative z-10 text-slate-300 text-sm">
+              Scope, deliverables, milestones, and an implementation plan (with
+              risks/options).
+            </p>
+          </div>
+          <div
+            class="glass-card rounded-2xl p-6 relative overflow-hidden reveal"
+            style="--reveal-i: 2"
+          >
+            <div
+              class="absolute -right-4 -top-4 text-9xl font-bold text-slate-500 select-none pointer-events-none z-0"
+            >
+              3
+            </div>
+            <h4 class="relative z-10 text-lg font-bold text-blue-300 mb-2">
+              Build Iteratively
+            </h4>
+            <p class="relative z-10 text-slate-300 text-sm">
+              Agile delivery with clear checkpoints, repo-based work, and
+              frequent updates.
+            </p>
+          </div>
+          <div
+            class="glass-card rounded-2xl p-6 relative overflow-hidden reveal"
+            style="--reveal-i: 3"
+          >
+            <div
+              class="absolute -right-4 -top-4 text-9xl font-bold text-slate-500 select-none pointer-events-none z-0"
+            >
+              4
+            </div>
+            <h4 class="relative z-10 text-lg font-bold text-blue-300 mb-2">
+              Handover
+            </h4>
+            <p class="relative z-10 text-slate-300 text-sm">
+              Documentation, runbooks, optional training, and follow-up support.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="max-w-7xl mx-auto mb-20">
+        <div class="relative rounded-3xl overflow-hidden reveal" style="background: linear-gradient(135deg, rgba(15,23,42,0.8) 0%, rgba(30,41,59,0.6) 50%, rgba(15,23,42,0.8) 100%); border: 1px solid rgba(255,255,255,0.08);">
+          <!-- Decorative glow -->
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-32 bg-blue-500/10 blur-3xl pointer-events-none"></div>
+
+          <div class="relative px-8 py-16 md:px-16 md:py-20 text-center">
+            <p class="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4">Ready to get started?</p>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
+              Let’s Build Something Together
+            </h2>
+            <p class="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto mb-10">
+              Whether you need a one-off analysis, a production pipeline, or a long-term
+              engineering partner — the best next step is a free 30-minute call.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+              <a
+                href="#book"
+                id="bookBottom"
+                class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-full text-lg font-bold transition-all shadow-lg shadow-blue-600/25 hover:shadow-blue-500/30 hover:scale-105 transform"
+              >
+                Book a Free Intro Call
+              </a>
+              <a
+                href="mailto:contact@martonmunz.com?subject=Project%20inquiry"
+                class="px-8 py-4 rounded-full border border-white/15 text-white font-medium hover:bg-white/5 transition-colors text-lg"
+              >
+                Send an Email
+              </a>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-slate-400">
+              <span class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>
+                No commitment required
+              </span>
+              <span class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>
+                Response within 24 hours
+              </span>
+              <span class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>
+                NDA available on request
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 py-12 bg-slate-950">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <div class="text-slate-500 text-sm">
+          © <span id="year"></span> Márton Münz
+        </div>
+        <div class="flex gap-6 text-sm font-medium text-slate-400">
+          <a
+            href="mailto:contact@martonmunz.com"
+            class="hover:text-white transition-colors"
+            >Email</a
+          >
+          <a
+            href="https://www.linkedin.com/in/marton-munz-phd"
+            target="_blank"
+            class="hover:text-white transition-colors"
+            >LinkedIn</a
+          >
+          <a href="faq.html" class="hover:text-white transition-colors">FAQ</a>
+          <a href="testimonials.html" class="hover:text-white transition-colors"
+            >Testimonials</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <div
+      id="bookModal"
+      class="fixed inset-0 z-[100] hidden"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity"
+        id="modalBackdrop"
+      ></div>
+
+      <div
+        class="relative w-full max-w-4xl mx-auto mt-20 bg-white rounded-2xl shadow-2xl overflow-hidden animate-[fadeInUp_0.3s_ease-out]"
+      >
+        <div
+          class="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-gray-50"
+        >
+          <strong class="text-slate-800 text-sm font-bold"
+            >Book a free 30‑minute initial call</strong
+          >
+          <button
+            id="closeModal"
+            class="p-2 rounded-full hover:bg-gray-200 text-slate-500 transition-colors"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="h-[600px] w-full bg-white">
+          <iframe
+            id="bookFrame"
+            title="TidyCal booking"
+            src="https://tidycal.com/martonmunz"
+            class="w-full h-full border-0"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Scroll-reveal with Intersection Observer
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => revealObserver.observe(el));
+
+      // Footer Year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Mobile Menu
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileNav = document.getElementById("mobileNav");
+
+      menuBtn.addEventListener("click", () => {
+        mobileNav.classList.toggle("hidden");
+      });
+
+      // Modal Logic
+      const modal = document.getElementById("bookModal");
+      const closeModal = document.getElementById("closeModal");
+      const backdrop = document.getElementById("modalBackdrop");
+      const bookLinks = ["bookTop", "bookHero", "bookBottom"]
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+
+      function openModal(e) {
+        e.preventDefault();
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+      function hideModal() {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+
+      bookLinks.forEach((a) => a.addEventListener("click", openModal));
+      closeModal.addEventListener("click", hideModal);
+      backdrop.addEventListener("click", hideModal);
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !modal.classList.contains("hidden"))
+          hideModal();
+      });
+
+    </script>
+  </body>
+</html>
