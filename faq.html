@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ — Márton Münz, PhD</title>
+    <meta
+      name="description"
+      content="Frequently asked questions about working with Márton Münz — data security, project workflow, deliverables, and pricing."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      body {
+        background-color: #020617;
+        font-family: "Inter", sans-serif;
+        color: #f1f5f9;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+
+      .bg-glow {
+        position: fixed;
+        top: -10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: 800px;
+        background: radial-gradient(
+          circle at 50% 0%,
+          rgba(37, 99, 235, 0.15) 0%,
+          rgba(2, 6, 23, 0) 70%
+        );
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .dot-overlay {
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px
+        );
+        background-size: 24px 24px;
+        z-index: -1;
+      }
+
+      .glass-card {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      }
+
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .fade-in-up {
+        opacity: 0;
+        animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .delay-200 {
+        animation-delay: 200ms;
+      }
+
+      .text-gradient {
+        background: linear-gradient(to right, #60a5fa, #818cf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+          transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal-group .reveal {
+        transition-delay: calc(var(--reveal-i, 0) * 120ms);
+      }
+
+      :root {
+        --header-offset: 110px;
+      }
+
+      section[id] {
+        scroll-margin-top: var(--header-offset);
+      }
+
+      /* FAQ accordion */
+      .faq-item {
+        background: rgba(15, 23, 42, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 1rem;
+        overflow: hidden;
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .faq-item:hover {
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+
+      .faq-item[open] {
+        border-color: rgba(59, 130, 246, 0.25);
+        box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.4);
+      }
+
+      .faq-item summary {
+        cursor: pointer;
+        list-style: none;
+        padding: 1.25rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .faq-item summary::marker {
+        content: "";
+      }
+
+      .faq-item summary .chevron {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        color: #64748b;
+        transition: transform 0.3s ease;
+      }
+
+      .faq-item[open] summary .chevron {
+        transform: rotate(180deg);
+        color: #60a5fa;
+      }
+
+      .faq-answer {
+        padding: 0 1.5rem 1.5rem;
+      }
+
+      /* Category pill */
+      .category-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.375rem 1rem;
+        border-radius: 9999px;
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        color: #93c5fd;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen selection:bg-blue-500/30">
+    <div class="bg-glow"></div>
+    <div class="dot-overlay"></div>
+
+    <header
+      id="siteHeader"
+      class="fixed top-0 w-full z-50 glass-nav transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-1 py-4">
+        <div class="flex items-center justify-between">
+          <a class="flex flex-col group" href="index.html" aria-label="Home">
+            <strong
+              class="text-slate-500 text-lg tracking-tight group-hover:text-blue-600 transition-colors"
+              style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif"
+              >Márton Münz, PhD</strong
+            >
+            <span class="text-xs text-slate-900"
+              >Computational Biology &bull; Cloud &bull; ML/AI Consulting</span
+            >
+          </a>
+
+          <button
+            id="menuBtn"
+            class="md:hidden px-4 py-2 border border-slate-300 rounded-full text-sm text-slate-700 bg-slate-100 hover:bg-slate-200"
+          >
+            Menu
+          </button>
+
+          <nav class="hidden md:flex items-center gap-8">
+            <ul class="flex gap-6 text-md text-slate-500 font-medium list-none">
+              <li>
+                <a
+                  href="index.html#services"
+                  class="hover:text-slate-900 transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="hover:text-slate-900 transition-colors"
+                  >About me</a
+                >
+              </li>
+              <li>
+                <a
+                  href="testimonials.html"
+                  class="hover:text-slate-900 transition-colors"
+                  >Testimonials</a
+                >
+              </li>
+              <li>
+                <a href="faq.html" class="text-slate-900 transition-colors"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+
+            <div class="flex gap-4 items-center pl-4 border-l border-slate-200">
+              <a
+                href="mailto:contact@martonmunz.com?subject=Project%20inquiry"
+                class="text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                >Email</a
+              >
+              <a
+                href="index.html#book"
+                class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-lg shadow-blue-900/20"
+                >Book a call</a
+              >
+            </div>
+          </nav>
+        </div>
+
+        <nav
+          id="mobileNav"
+          class="hidden pt-4 pb-2 md:hidden border-t border-slate-200 mt-4"
+        >
+          <ul class="flex flex-col gap-3 text-sm text-slate-600 list-none">
+            <li>
+              <a href="index.html#services" class="block py-2">Services</a>
+            </li>
+            <li><a href="about.html" class="block py-2">About me</a></li>
+            <li>
+              <a href="testimonials.html" class="block py-2">Testimonials</a>
+            </li>
+            <li><a href="faq.html" class="block py-2">FAQ</a></li>
+            <li>
+              <a
+                href="index.html#book"
+                class="block py-2 text-blue-400 font-bold"
+                >Book a call</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-32 pb-20 px-6">
+      <section class="max-w-3xl mx-auto mb-16">
+        <h1
+          class="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight leading-tight fade-in-up"
+        >
+          Frequently Asked Questions
+        </h1>
+        <p
+          class="text-lg text-slate-300 leading-relaxed max-w-2xl fade-in-up delay-200"
+        >
+          Everything you need to know about working together.
+        </p>
+      </section>
+
+      <!-- Data Security & Confidentiality -->
+      <section id="security" class="max-w-3xl mx-auto mb-16">
+        <div class="flex items-center gap-3 mb-6 reveal">
+          <span class="category-pill">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+            Data Security & Confidentiality
+          </span>
+        </div>
+
+        <div class="space-y-3 reveal-group">
+          <details class="faq-item reveal" style="--reveal-i: 0">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                How do you ensure our data is safe when working with you?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                I take data security very seriously and apply strict safeguards
+                to protect your information at every stage of a project. All
+                email communication is protected with end-to-end encryption
+                using a zero-access architecture, ensuring only sender and
+                recipient can read messages. Project files are stored on
+                encrypted drives and secure cloud infrastructure with
+                industry-standard protection. Access is restricted solely to me
+                — no subcontractors or third parties. I rely on multi-factor
+                authentication and strong password practices. Sensitive data is
+                transferred only through encrypted channels, never via unsecured
+                attachments. My systems are kept up to date with the latest
+                security patches. I minimize data retention by securely deleting
+                files when they are no longer needed or upon your request.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal" style="--reveal-i: 1">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                What happens to our data after the project is complete?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                By default, I keep your data only as long as needed to finalize
+                deliverables and ensure smooth completion. Afterward, I can
+                securely delete all files on request or archive them for
+                potential future collaboration — the choice is always yours. We
+                can discuss the details and agree on a data retention policy at
+                the start of the project so expectations are clear.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal" style="--reveal-i: 2">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                How do you transfer large or sensitive datasets securely?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                I transfer data only through encrypted channels such as SFTP or
+                private, access-controlled cloud links, ensuring it is never
+                exposed through insecure channels. I also adapt to your
+                workflows and compliance requirements, offering multiple secure
+                options for two-way exchange. This allows you to send files and
+                receive results in the format and method that best fits your
+                organization without compromising security.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal" style="--reveal-i: 3">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                Will you sign a confidentiality agreement (NDA), if requested?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                Yes. I understand the sensitivity of research and business data
+                and I am happy to sign an NDA to provide additional legal
+                assurance of confidentiality. It is usually the first step in
+                creating a safe environment for open and transparent
+                collaboration with my clients.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Project Workflow & Collaboration -->
+      <section id="workflow" class="max-w-3xl mx-auto mb-16">
+        <div class="flex items-center gap-3 mb-6 reveal">
+          <span class="category-pill">
+            <i data-lucide="git-branch" class="w-3.5 h-3.5"></i>
+            Project Workflow & Collaboration
+          </span>
+        </div>
+
+        <div class="space-y-3 reveal-group">
+          <details class="faq-item reveal" style="--reveal-i: 0">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                What is your typical workflow when starting a new project?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                First, we schedule an initial call (or calls) to clearly
+                understand your goals, challenges, and data requirements. I can
+                then propose a structured plan outlining the scope, timeline,
+                and deliverables. Once agreed, I set up a secure working
+                environment and establish the channels for data transfer and
+                communication. From there, I begin implementing the agreed
+                solution in well-defined stages, sharing progress updates and
+                intermediate results as expected. At the end of the project, I
+                deliver the final outputs and documentation in your preferred
+                format.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal" style="--reveal-i: 1">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                How do you share progress and results during a project?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                I adapt to your preferences — whether through regular email
+                updates, Slack communication, or scheduled calls. For longer
+                projects, I typically provide weekly or biweekly progress
+                summaries so you are always informed about the status and next
+                steps. If you prefer more visibility, I can also set up a shared
+                dashboard where you can track progress in real time.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal" style="--reveal-i: 2">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                What tools and platforms do you use to collaborate with clients?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                I commonly use platforms such as Slack, Confluence, Microsoft
+                Teams, Google Workspace, or Zoom for communication. For project
+                management, I can adapt to your preferred system (e.g. Jira,
+                Asana), or provide my own setup.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal" style="--reveal-i: 3">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                Can you work with my team's existing infrastructure and tools?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                Yes. I regularly adapt to clients' preferred tools, whether that
+                means working on their AWS or Google cloud accounts,
+                high-performance computing clusters, or project management
+                platforms (e.g. Slack, Jira, Confluence, GitHub). My goal is to
+                integrate seamlessly into your existing workflow.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal" style="--reveal-i: 4">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                What do you need from us before we begin working together?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                At the start, I need a clear description of your project goals,
+                access to any relevant datasets, and information about your
+                preferred tools or infrastructure. If you have internal
+                guidelines (e.g., for data handling or reporting), I will follow
+                them closely. Once we align on scope and expectations, I can get
+                started quickly.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Deliverables & Knowledge Transfer -->
+      <section id="deliverables" class="max-w-3xl mx-auto mb-16">
+        <div class="flex items-center gap-3 mb-6 reveal">
+          <span class="category-pill">
+            <i data-lucide="package" class="w-3.5 h-3.5"></i>
+            Deliverables & Knowledge Transfer
+          </span>
+        </div>
+
+        <div class="space-y-3 reveal-group">
+          <details class="faq-item reveal" style="--reveal-i: 0">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                Do you also deliver the code you wrote for the project?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                In data analysis projects, I provide results and reports by
+                default. The underlying code is available on request, packaged
+                in a repository that you can run independently. For
+                software-focused projects such as reproducible workflows,
+                infrastructure as code, or web applications, the code itself is
+                the primary deliverable. Even if I handle deployment, I always
+                share the repository with you as a separate, standalone package.
+                If helpful, I can also provide a handover session to walk
+                through the codebase and answer your team's questions.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal" style="--reveal-i: 1">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                Do you provide documentation for code and your analyses?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                I provide clear, structured documentation to ensure my work is
+                reproducible and easy to use by your team. For analyses, this
+                includes detailed methods, data sources, and step-by-step
+                workflow explanation. For code, I add inline comments and supply
+                README files with usage notes, examples, or configuration
+                guidance. The level of detail and format can be tailored to your
+                team's needs, so you have exactly the information required to
+                rerun or build on my work with minimal effort.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal" style="--reveal-i: 2">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                Do you offer training or handover sessions for my team?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                Yes. I can provide training sessions, documentation
+                walkthroughs, or live handovers to ensure your team is fully
+                comfortable with the results and workflows. This can range from
+                short knowledge-transfer calls to more structured training
+                depending on your needs.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal" style="--reveal-i: 3">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                Do you provide long-term support after a project is finished?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                Yes. I can provide ongoing support, maintenance, or follow-up
+                consulting depending on your needs. This can include
+                troubleshooting, updating workflows, or adapting pipelines to
+                new datasets.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Flexibility & Pricing -->
+      <section id="pricing" class="max-w-3xl mx-auto mb-20">
+        <div class="flex items-center gap-3 mb-6 reveal">
+          <span class="category-pill">
+            <i data-lucide="settings-2" class="w-3.5 h-3.5"></i>
+            Flexibility & Pricing
+          </span>
+        </div>
+
+        <div class="space-y-3 reveal-group">
+          <details class="faq-item reveal" style="--reveal-i: 0">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                How flexible are you with project scope changes?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                I understand that priorities can evolve as data is explored and
+                new insights emerge. If the scope changes during a project, I
+                work with you to reassess timelines, deliverables, and budget so
+                that expectations remain clear. Scope adjustments are guided by
+                your priorities — I provide options and recommendations, but you
+                always make the final call.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal" style="--reveal-i: 1">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                What is your pricing model?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                I work on an hourly rate, which allows flexibility for projects
+                of different sizes and levels of complexity. Since every project
+                is unique, I encourage you to reach out to me directly — either
+                by email or through a short introductory call — so we can
+                discuss your specific needs and I can provide the exact rate.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal" style="--reveal-i: 2">
+            <summary>
+              <h3 class="text-white font-semibold text-base md:text-lg">
+                Are cloud costs (i.e. compute, storage) included in your hourly
+                fees?
+              </h3>
+              <i data-lucide="chevron-down" class="chevron"></i>
+            </summary>
+            <div class="faq-answer">
+              <p class="text-slate-300 text-base leading-relaxed">
+                No. The costs associated with computing resources — such as
+                cloud compute, storage, or other infrastructure — are not
+                included in my hourly consulting fees, except in cases where
+                they are negligible. These expenses are covered by the client.
+                I'll work with you to estimate these costs upfront and ensure
+                full transparency so you know what to expect.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="max-w-3xl mx-auto mb-10">
+        <div class="glass-card rounded-2xl p-10 md:p-12 text-center reveal">
+          <h2
+            class="text-2xl md:text-3xl font-bold text-white mb-6 tracking-tight"
+          >
+            Have a question not listed here?
+          </h2>
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <a
+              href="index.html#book"
+              class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-full font-bold transition-all shadow-lg shadow-blue-600/25 hover:scale-105 transform"
+              >Schedule an Intro Call</a
+            >
+            <a
+              href="mailto:contact@martonmunz.com?subject=Question"
+              class="px-6 py-3 rounded-full border border-white/15 text-white font-medium hover:bg-white/5 transition-colors"
+              >Send an Email</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 py-12 bg-slate-950">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <div class="text-slate-500 text-sm">
+          &copy; <span id="year"></span> Márton Münz
+        </div>
+        <div class="flex gap-6 text-sm font-medium text-slate-400">
+          <a
+            href="mailto:contact@martonmunz.com"
+            class="hover:text-white transition-colors"
+            >Email</a
+          >
+          <a
+            href="https://www.linkedin.com/in/marton-munz-phd"
+            target="_blank"
+            class="hover:text-white transition-colors"
+            >LinkedIn</a
+          >
+          <a href="faq.html" class="hover:text-white transition-colors">FAQ</a>
+          <a href="testimonials.html" class="hover:text-white transition-colors"
+            >Testimonials</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      lucide.createIcons();
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileNav = document.getElementById("mobileNav");
+      menuBtn.addEventListener("click", () => {
+        mobileNav.classList.toggle("hidden");
+      });
+
+      // Accordion: close other items when one is opened
+      document.querySelectorAll(".faq-item").forEach((item) => {
+        item.addEventListener("toggle", () => {
+          if (item.open) {
+            document.querySelectorAll(".faq-item").forEach((other) => {
+              if (other !== item) other.removeAttribute("open");
+            });
+          }
+        });
+      });
+
+      // Scroll-reveal
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => revealObserver.observe(el));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — Márton Münz, PhD</title>
+    <meta
+      name="description"
+      content="About Márton Münz — computational biologist with 15+ years of experience in genomics, bioinformatics, cloud infrastructure, and AI systems."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      body {
+        background-color: #020617;
+        font-family: "Inter", sans-serif;
+        color: #f1f5f9;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+
+      .bg-glow {
+        position: fixed;
+        top: -10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: 800px;
+        background: radial-gradient(
+          circle at 50% 0%,
+          rgba(37, 99, 235, 0.15) 0%,
+          rgba(2, 6, 23, 0) 70%
+        );
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .dot-overlay {
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px
+        );
+        background-size: 24px 24px;
+        z-index: -1;
+      }
+
+      .glass-card {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      }
+
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .fade-in-up {
+        opacity: 0;
+        animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .delay-200 {
+        animation-delay: 200ms;
+      }
+
+      .text-gradient {
+        background: linear-gradient(to right, #60a5fa, #818cf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      :root {
+        --header-offset: 110px;
+      }
+
+      section[id] {
+        scroll-margin-top: var(--header-offset);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen selection:bg-blue-500/30">
+    <div class="bg-glow"></div>
+    <div class="dot-overlay"></div>
+
+    <header
+      id="siteHeader"
+      class="fixed top-0 w-full z-50 glass-nav transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-1 py-4">
+        <div class="flex items-center justify-between">
+          <a class="flex flex-col group" href="index.html" aria-label="Home">
+            <strong
+              class="text-slate-500 text-lg tracking-tight group-hover:text-blue-600 transition-colors"
+              style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif"
+              >Márton Münz, PhD</strong
+            >
+            <span class="text-xs text-slate-900"
+              >Computational Biology &bull; Cloud &bull; ML/AI Consulting</span
+            >
+          </a>
+
+          <button
+            id="menuBtn"
+            class="md:hidden px-4 py-2 border border-slate-300 rounded-full text-sm text-slate-700 bg-slate-100 hover:bg-slate-200"
+          >
+            Menu
+          </button>
+
+          <nav class="hidden md:flex items-center gap-8">
+            <ul class="flex gap-6 text-md text-slate-500 font-medium list-none">
+              <li>
+                <a
+                  href="index.html#services"
+                  class="hover:text-slate-900 transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a href="about.html" class="text-slate-900 transition-colors"
+                  >About me</a
+                >
+              </li>
+              <li>
+                <a
+                  href="testimonials.html"
+                  class="hover:text-slate-900 transition-colors"
+                  >Testimonials</a
+                >
+              </li>
+              <li>
+                <a
+                  href="faq.html"
+                  class="hover:text-slate-900 transition-colors"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+
+            <div class="flex gap-4 items-center pl-4 border-l border-slate-200">
+              <a
+                href="mailto:contact@martonmunz.com?subject=Project%20inquiry"
+                class="text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                >Email</a
+              >
+              <a
+                href="index.html#book"
+                class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-lg shadow-blue-900/20"
+                >Book a call</a
+              >
+            </div>
+          </nav>
+        </div>
+
+        <nav
+          id="mobileNav"
+          class="hidden pt-4 pb-2 md:hidden border-t border-slate-200 mt-4"
+        >
+          <ul class="flex flex-col gap-3 text-sm text-slate-600 list-none">
+            <li>
+              <a href="index.html#services" class="block py-2">Services</a>
+            </li>
+            <li><a href="about.html" class="block py-2">About me</a></li>
+            <li>
+              <a href="testimonials.html" class="block py-2">Testimonials</a>
+            </li>
+            <li><a href="faq.html" class="block py-2">FAQ</a></li>
+            <li>
+              <a
+                href="index.html#book"
+                class="block py-2 text-blue-400 font-bold"
+                >Book a call</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-32 pb-20 px-6">
+      <section class="max-w-3xl mx-auto">
+        <h1
+          class="text-4xl md:text-5xl font-extrabold text-white mb-12 tracking-tight leading-tight fade-in-up"
+        >
+          About me
+        </h1>
+
+        <img
+          src="prof.jpg"
+          alt="Márton Münz"
+          class="w-64 rounded-md border border-white/10 shadow-2xl shadow-black/40 float-right ml-8 mb-6 fade-in-up delay-200"
+        />
+
+        <div
+          class="text-slate-300 leading-relaxed space-y-6 fade-in-up delay-200"
+        >
+          <p>
+            I am a computational biologist with more than 15 years of experience
+            working at the intersection of genomics, bioinformatics, and cloud
+            infrastructure. I hold a PhD in Computational Biology from the
+            University of Oxford, where my research focused on molecular
+            dynamics simulations and the relationship between protein
+            flexibility and binding specificity. My scientific training began
+            with an MSc in Physics from Eötvös Loránd University in Budapest,
+            where I worked on statistical methods for gene expression analysis.
+            Following my doctoral studies, I carried out postdoctoral research
+            at the Wellcome Centre for Human Genetics at the University of
+            Oxford, contributing to large translational genomics initiatives
+            aimed at improving the accessibility of clinical genetic testing. My
+            work included developing next-generation sequencing analysis
+            pipelines and tools for variant interpretation, some of which were
+            later implemented at The Royal Marsden Hospital in London for the
+            genetic screening of thousands of cancer patients.
+          </p>
+          <p>
+            Over the course of my career I have combined scientific research
+            with large-scale computational system design. I worked as a
+            bioinformatics consultant at The Institute of Cancer Research in
+            London before joining The Bioinformatics CRO, where I served as IT
+            Director and Senior Scientist and collaborated with more than twenty
+            biotech clients on projects involving genomics, machine learning,
+            data pipelines, and cloud infrastructure. In that role I led the
+            development of the company's AWS-based computing platform and
+            oversaw the design of scalable software systems and automated
+            workflows supporting data-intensive biological research. Today I
+            work as an independent consultant, helping biotech and research
+            teams design and implement robust computational platforms,
+            bioinformatics pipelines, and AI-driven systems that accelerate
+            scientific discovery and enable the analysis of large-scale
+            biological data.
+          </p>
+        </div>
+
+        <div class="mt-6 pt-8 border-t border-white/10 fade-in-up delay-200">
+          <a
+            href="mailto:contact@martonmunz.com?subject=Full%20CV%20request"
+            class="text-blue-400 hover:text-blue-300 font-medium transition-colors"
+            >Request full CV &rarr;</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 py-12 bg-slate-950">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <div class="text-slate-500 text-sm">
+          &copy; <span id="year"></span> Márton Münz
+        </div>
+        <div class="flex gap-6 text-sm font-medium text-slate-400">
+          <a
+            href="mailto:contact@martonmunz.com"
+            class="hover:text-white transition-colors"
+            >Email</a
+          >
+          <a
+            href="https://www.linkedin.com/in/marton-munz-phd"
+            target="_blank"
+            class="hover:text-white transition-colors"
+            >LinkedIn</a
+          >
+          <a href="faq.html" class="hover:text-white transition-colors">FAQ</a>
+          <a href="testimonials.html" class="hover:text-white transition-colors"
+            >Testimonials</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      lucide.createIcons();
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileNav = document.getElementById("mobileNav");
+      menuBtn.addEventListener("click", () => {
+        mobileNav.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
