@@ -26,7 +26,8 @@
       h1,
       h2,
       h3,
-      h4 {
+      h4,
+      .brand-font {
         font-family: "Plus Jakarta Sans", sans-serif;
       }
 
@@ -117,12 +118,11 @@
         <div class="flex items-center justify-between">
           <a class="flex flex-col group" href="index.html" aria-label="Home">
             <strong
-              class="text-slate-500 text-lg tracking-tight group-hover:text-blue-600 transition-colors"
-              style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif"
+              class="text-blue-700 text-xl brand-font tracking-tight group-hover:text-[#818cf8] transition-colors"
               >Márton Münz, PhD</strong
             >
             <span class="text-xs text-slate-900"
-              >Computational Biology &bull; Cloud &bull; ML/AI Consulting</span
+              >Computational Biology • Cloud • ML/AI Consulting</span
             >
           </a>
 
@@ -143,7 +143,9 @@
                 >
               </li>
               <li>
-                <a href="about.html" class="text-slate-900 transition-colors"
+                <a
+                  href="about.html"
+                  class="hover:text-slate-900 transition-colors"
                   >About me</a
                 >
               </li>
@@ -170,7 +172,8 @@
                 >Email</a
               >
               <a
-                href="index.html#book"
+                href="#book"
+                id="bookTop"
                 class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-lg shadow-blue-900/20"
                 >Book a call</a
               >
@@ -183,18 +186,12 @@
           class="hidden pt-4 pb-2 md:hidden border-t border-slate-200 mt-4"
         >
           <ul class="flex flex-col gap-3 text-sm text-slate-600 list-none">
-            <li>
-              <a href="index.html#services" class="block py-2">Services</a>
-            </li>
-            <li><a href="about.html" class="block py-2">About me</a></li>
-            <li>
-              <a href="testimonials.html" class="block py-2">Testimonials</a>
-            </li>
+            <li><a href="index.html#services" class="block py-2">Services</a></li>
+            <li><a href="#case-studies" class="block py-2">Case Studies</a></li>
+            <li><a href="#testimonials" class="block py-2">Testimonials</a></li>
             <li><a href="faq.html" class="block py-2">FAQ</a></li>
             <li>
-              <a
-                href="index.html#book"
-                class="block py-2 text-blue-400 font-bold"
+              <a href="#book" class="block py-2 text-blue-400 font-bold"
                 >Book a call</a
               >
             </li>
