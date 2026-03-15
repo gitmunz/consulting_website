@@ -156,9 +156,14 @@
       }
       /* Solution card design */
       .solution-card {
-        background: rgba(15, 23, 42, 0.5);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 1rem;
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e293b 50%,
+          #0f172a 100%
+        );
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1.5rem;
         overflow: hidden;
         transition:
           border-color 0.3s,
@@ -170,6 +175,10 @@
         border-color: rgba(255, 255, 255, 0.12);
         box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
         transform: translateY(-2px);
+      }
+
+      .solution-card.border-l-blue-500:hover {
+        border-left-color: #3b82f6;
       }
 
       .solution-card .card-accent {
@@ -508,7 +517,7 @@
             <div class="card-body">
               <i data-lucide="wand-sparkles" class="card-icon"></i>
               <h3 class="text-xl font-bold text-white mb-4">
-                AI-Native Pipelines
+                AI-Native Systems
               </h3>
               <p class="text-slate-300 text-md">
                 Agentic workflows, RAG systems, private LLM infrastructure, MCP
@@ -586,21 +595,186 @@
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
             <div class="card-body">
-              <i data-lucide="monitor" class="card-icon"></i>
-              <h3 class="text-xl font-bold text-white mb-4">Blabla bla</h3>
+              <i data-lucide="line-squiggle" class="card-icon"></i>
+              <h3 class="text-xl font-bold text-white mb-4">
+                Structural Biology
+              </h3>
               <p class="text-slate-300 text-md">
-                Deployment of data-intensive applications in the cloud;
-                monitoring and logging bioinformatics workflows, containerizing
+                Structural bioinformatics, protein–protein interface analysis,
+                docking, molecular dynamics, <i>de novo</i> protein design
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="services" class="max-w-7xl mx-auto mb-32">
-        <div class="mb-12 reveal">
-          <h2 class="text-3xl font-bold text-white mb-4">Example Solutions</h2>
-          <p>blabla...</p>
+      <section
+        id="solutions"
+        class="mb-32 py-16 px-6 -mx-6"
+        style="background: white"
+      >
+        <div class="max-w-7xl mx-auto">
+          <div class="mb-12 reveal">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">
+              Example Solutions
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-group">
+            <div
+              class="solution-card reveal border-l-3 border-l-blue-500"
+              style="--reveal-i: 0"
+            >
+              <div class="card-body">
+                <h3 class="text-xl font-bold text-white mb-2">
+                  Agentic AI Workflows for Bioinformatics
+                </h3>
+                <p class="text-s text-blue-300 mb-3">
+                  Unlock AI Automation Without Losing Traceability
+                </p>
+                <a
+                  href="solutions.html#agentic-ai"
+                  class="text-sm text-slate-300 hover:text-blue-300 transition-colors"
+                  >Read more →</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="solution-card reveal border-l-3 border-l-blue-500"
+              style="--reveal-i: 1"
+            >
+              <div class="card-body">
+                <h3 class="text-xl font-bold text-white mb-2">
+                  Multi-omics Data Analysis
+                </h3>
+                <p class="text-s text-blue-300 mb-3">
+                  Turn Complex Omics Data Into Insight Without Reproducibility
+                  Issues
+                </p>
+                <a
+                  href="solutions.html#multi-omics"
+                  class="text-sm text-slate-300 hover:text-blue-300 transition-colors"
+                  >Read more →</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="solution-card reveal border-l-3 border-l-blue-500"
+              style="--reveal-i: 2"
+            >
+              <div class="card-body">
+                <h3 class="text-xl font-bold text-white mb-2">
+                  End-to-End Sequencing Data Pipelines
+                </h3>
+                <p class="text-s text-blue-300 mb-3">
+                  Move From Sequencing Data to Discovery Without Bottlenecks
+                </p>
+                <a
+                  href="solutions.html#sequencing-pipelines"
+                  class="text-sm text-slate-300 hover:text-blue-300 transition-colors"
+                  >Read more →</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="solution-card reveal border-l-3 border-l-blue-500"
+              style="--reveal-i: 3"
+            >
+              <div class="card-body">
+                <h3 class="text-xl font-bold text-white mb-2">
+                  GPU-Accelerated Model Deployment
+                </h3>
+                <p class="text-s text-blue-300 mb-3">
+                  Accelerate Model Inference Without Overspending on Hardware
+                </p>
+                <a
+                  href="solutions.html#gpu-deployment"
+                  class="text-sm text-slate-300 hover:text-blue-300 transition-colors"
+                  >Read more →</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="solution-card reveal border-l-3 border-l-blue-500"
+              style="--reveal-i: 4"
+            >
+              <div class="card-body">
+                <h3 class="text-xl font-bold text-white mb-2">
+                  Bioinformatics Data Engineering
+                </h3>
+                <p class="text-s text-blue-300 mb-3">
+                  Build Reliable Biological Data Infrastructure Without Fragile
+                  Data Pipelines
+                </p>
+                <a
+                  href="solutions.html#data-engineering"
+                  class="text-sm text-slate-300 hover:text-blue-300 transition-colors"
+                  >Read more →</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="solution-card reveal border-l-3 border-l-blue-500"
+              style="--reveal-i: 5"
+            >
+              <div class="card-body">
+                <h3 class="text-xl font-bold text-white mb-2">
+                  Workflow Observability &amp; Monitoring
+                </h3>
+                <p class="text-s text-blue-300 mb-3">
+                  Keep Pipelines Reliable Without Constant Manual Debugging
+                </p>
+                <a
+                  href="solutions.html#observability"
+                  class="text-sm text-slate-300 hover:text-blue-300 transition-colors"
+                  >Read more →</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="solution-card reveal border-l-3 border-l-blue-500"
+              style="--reveal-i: 6"
+            >
+              <div class="card-body">
+                <h3 class="text-xl font-bold text-white mb-2">
+                  Cloud Cost Optimization
+                </h3>
+                <p class="text-s text-blue-300 mb-3">
+                  Cut Your AWS/GCP Bill Without Hurting Pipeline Throughput
+                </p>
+                <a
+                  href="solutions.html#cloud-cost"
+                  class="text-sm text-slate-300 hover:text-blue-300 transition-colors"
+                  >Read more →</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="solution-card reveal border-l-3 border-l-blue-500"
+              style="--reveal-i: 7"
+            >
+              <div class="card-body">
+                <h3 class="text-xl font-bold text-white mb-2">
+                  HPC &amp; Cloud Pipeline Engineering
+                </h3>
+                <p class="text-s text-blue-300 mb-3">
+                  Run Bioinformatics Pipelines Without Infrastructure Complexity
+                </p>
+                <a
+                  href="solutions.html#hpc-cloud"
+                  class="text-sm text-slate-300 hover:text-blue-300 transition-colors"
+                  >Read more →</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
