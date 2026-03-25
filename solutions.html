@@ -289,12 +289,12 @@
 
             <div class="flex gap-4 items-center pl-4 border-l border-slate-200">
               <a
-                href="mailto:contact@martonmunz.com?subject=Project%20inquiry"
+                href="mailto:contact@martonmunz.com"
                 class="text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors"
                 >Email</a
               >
               <a
-                href="#book"
+                href="index.html#book"
                 id="bookTop"
                 class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-lg shadow-blue-900/20"
                 >Book a call</a
@@ -337,17 +337,76 @@
         </h1>
         <p class="text-lg text-slate-300 leading-relaxed max-w-3xl">
           See a selection of common challenges faced by biotech and research
-          teams, and the solutions I offer, from multi-omics pipelines and
-          agentic AI workflows to GPU infrastructure, cloud cost optimization,
-          HPC and better workflow observability.
+          teams, and the solutions I offer. ...
         </p>
       </section>
 
       <!-- Solutions Grid -->
       <section class="max-w-7xl mx-auto mb-16">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-group">
-          <!-- 1 — Agentic AI Workflows -->
-          <div id="agentic-ai" class="solution-card reveal" style="--reveal-i: 0">
+          <!-- 1 — Multi-omics Data Analysis -->
+          <div
+            id="multi-omics"
+            class="solution-card reveal"
+            style="--reveal-i: 1"
+          >
+            <div
+              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
+            ></div>
+            <div class="card-body">
+              <h2 class="text-2xl font-bold text-white mb-4">
+                Multi-omics Data Analysis
+              </h2>
+              <p class="text-s text-blue-300 mb-6">
+                Turn Complex Omics Data Into Insight Without Reproducibility
+                Issues
+              </p>
+
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Modern research increasingly relies on multiomics data &mdash;
+                including genomics, transcriptomics, proteomics, and epigenomics
+                &mdash; to uncover biological mechanisms and therapeutic
+                targets. However, these datasets are large, heterogeneous, and
+                computationally intensive to analyze. Many teams rely on
+                fragmented workflows, inconsistent pipelines, or ad-hoc scripts
+                that are difficult to reproduce or scale, leading to slow
+                analysis cycles, unreliable results, and delays in turning data
+                into actionable biological insight.
+              </p>
+
+              <div class="solution-toggle" style="margin-top: 1.25rem">
+                <p
+                  class="text-xs font-bold text-blue-300 uppercase tracking-wide mb-3"
+                >
+                  My Solution
+                </p>
+                <div class="solution-content">
+                  <p class="text-slate-300 text-sm leading-relaxed">
+                    I design and implement reproducible, production-ready
+                    analysis pipelines tailored to your experimental design and
+                    data types. These workflows integrate best-practice tools
+                    for sequencing analysis, expression quantification, variant
+                    detection, and multiomics integration, with full
+                    traceability from raw data to results. Built on modern
+                    workflow frameworks (e.g. Nextflow, Snakemake) and fully
+                    containerized, these pipelines run reliably and efficiently
+                    across cloud and HPC environments with consistent, scalable
+                    execution. I also implement robust data management, QC
+                    reporting, and automated result summarization, enabling your
+                    team to interpret results quickly and move efficiently to
+                    the next stage of research.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2 — Agentic AI Workflows -->
+          <div
+            id="agentic-ai"
+            class="solution-card reveal"
+            style="--reveal-i: 0"
+          >
             <div
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
@@ -400,60 +459,12 @@
             </div>
           </div>
 
-          <!-- 2 — Multi-omics Data Analysis -->
-          <div id="multi-omics" class="solution-card reveal" style="--reveal-i: 1">
-            <div
-              class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
-            ></div>
-            <div class="card-body">
-              <h2 class="text-2xl font-bold text-white mb-4">
-                Multi-omics Data Analysis
-              </h2>
-              <p class="text-s text-blue-300 mb-6">
-                Turn Complex Omics Data Into Insight Without Reproducibility
-                Issues
-              </p>
-
-              <p class="text-slate-300 text-sm leading-relaxed">
-                Modern research increasingly relies on multiomics data &mdash;
-                including genomics, transcriptomics, proteomics, and epigenomics
-                &mdash; to uncover biological mechanisms and therapeutic
-                targets. However, these datasets are large, heterogeneous, and
-                computationally intensive to analyze. Many teams rely on
-                fragmented workflows, inconsistent pipelines, or ad-hoc scripts
-                that are difficult to reproduce or scale, leading to slow
-                analysis cycles, unreliable results, and delays in turning data
-                into actionable biological insight.
-              </p>
-
-              <div class="solution-toggle" style="margin-top: 1.25rem">
-                <p
-                  class="text-xs font-bold text-blue-300 uppercase tracking-wide mb-3"
-                >
-                  My Solution
-                </p>
-                <div class="solution-content">
-                  <p class="text-slate-300 text-sm leading-relaxed">
-                    I design and implement reproducible, production-grade
-                    analysis pipelines tailored to your experimental design and
-                    data types. These pipelines integrate best-practice tools
-                    for sequencing analysis, expression quantification, variant
-                    detection, and multiomics data integration while ensuring
-                    full reproducibility and traceability. I deploy workflows
-                    using scalable execution frameworks (e.g. Nextflow,
-                    Snakemake, or containerized pipelines) that run efficiently
-                    on cloud or HPC infrastructure. I also implement robust data
-                    management, QC reporting, and automated result summarization
-                    so your team can rapidly interpret findings and move to the
-                    next stage of research.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <!-- 3 — End-to-End Sequencing Data Platforms -->
-          <div id="sequencing-pipelines" class="solution-card reveal" style="--reveal-i: 2">
+          <div
+            id="sequencing-pipelines"
+            class="solution-card reveal"
+            style="--reveal-i: 2"
+          >
             <div
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
@@ -466,14 +477,14 @@
               </p>
 
               <p class="text-slate-300 text-sm leading-relaxed">
-                Modern research generates massive volumes of biological data,
-                but many organizations lack the infrastructure to efficiently
-                turn raw sequencing output into actionable insight. Fragmented
-                tools, manual data transfers, and loosely connected analysis
-                scripts lead to slow workflows, poor scalability, and difficulty
-                reproducing results &mdash; leaving valuable data underutilized
-                and researchers spending more time managing infrastructure than
-                generating insight.
+                Genomics research generates massive volumes of data, but many
+                teams lack the infrastructure to efficiently turn raw sequencing
+                output into actionable insight. Fragmented tools, manual data
+                transfers, and loosely connected analysis scripts lead to slow
+                workflows, poor scalability, and difficulty reproducing results
+                &mdash; leaving valuable data underutilized and researchers
+                spending more time managing infrastructure than generating
+                insight.
               </p>
 
               <div class="solution-toggle" style="margin-top: 1.25rem">
@@ -484,7 +495,7 @@
                 </p>
                 <div class="solution-content">
                   <p class="text-slate-300 text-sm leading-relaxed">
-                    I design and implement end-to-end computational platforms
+                    I design and implement end-to-end computational solutions
                     that integrate sequencing data, scalable infrastructure, and
                     reproducible analysis workflows into unified systems.
                     Starting from raw sequencing output, I build automated data
@@ -506,7 +517,11 @@
           </div>
 
           <!-- 4 — GPU-Accelerated Model Deployment -->
-          <div id="gpu-deployment" class="solution-card reveal" style="--reveal-i: 3">
+          <div
+            id="gpu-deployment"
+            class="solution-card reveal"
+            style="--reveal-i: 3"
+          >
             <div
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
@@ -519,13 +534,14 @@
               </p>
 
               <p class="text-slate-300 text-sm leading-relaxed">
-                Deploying large or complex AI models in production often
-                requires GPU resources that are expensive, difficult to manage,
-                and prone to bottlenecks. Without careful optimization, models
-                may run slowly, consume excessive GPU memory, or require
-                oversized instances just to meet latency targets. This results
-                in inflated deployment costs and unreliable performance across
-                research or clinical workflows.
+                Deploying complex AI models often requires GPU resources that
+                are expensive, difficult to manage, and prone to bottlenecks.
+                Without careful optimization, models can exhibit high latency,
+                inefficient GPU utilization, and excessive memory consumption,
+                often forcing biotech teams to overprovision instances just to
+                meet performance constraints. This drives up infrastructure
+                costs, reduces throughput, and makes it harder to deploy AI
+                systems reliably at scale.
               </p>
 
               <div class="solution-toggle" style="margin-top: 1.25rem">
@@ -536,20 +552,19 @@
                 </p>
                 <div class="solution-content">
                   <p class="text-slate-300 text-sm leading-relaxed">
-                    I architect optimized GPU deployment pipelines that balance
-                    speed, cost, and reliability for model inference and
-                    training workloads. I apply techniques such as model
-                    quantization, tensor parallelism, batching, and GPU memory
-                    optimization to reduce resource footprint without
-                    sacrificing accuracy. I design autoscaling GPU clusters or
-                    on-demand GPU execution paths to avoid paying for idle
-                    hardware. I containerize models using best practices
-                    (CUDA/toolkit alignment, optimized runtimes, efficient I/O)
-                    and integrate them with orchestration frameworks like ECS,
-                    Kubernetes, or Modal. Finally, I implement performance
-                    monitoring and profiling so your team can continuously track
-                    latency, throughput, and GPU utilization for predictable,
-                    efficient operation.
+                    I support teams in deploying GPU-intensive AI workflows on
+                    scalable, cost-efficient infrastructure for both training
+                    and inference. Leveraging cloud-based GPU platforms, I build
+                    systems that deliver high performance while minimizing
+                    latency, memory usage, and idle compute. I guide the
+                    selection of optimal GPU providers and architectures, and
+                    optimize workloads to improve utilization and avoid
+                    overprovisioning. By aligning infrastructure closely with
+                    real workload demands, teams can scale reliably and
+                    cost-effectively. The result is a deployment setup that
+                    integrates seamlessly with scientific pipelines, improves
+                    throughput, and reduces operational complexity while
+                    providing consistent performance.
                   </p>
                 </div>
               </div>
@@ -557,7 +572,11 @@
           </div>
 
           <!-- 5 — Bioinformatics Data Engineering -->
-          <div id="data-engineering" class="solution-card reveal" style="--reveal-i: 4">
+          <div
+            id="data-engineering"
+            class="solution-card reveal"
+            style="--reveal-i: 4"
+          >
             <div
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
@@ -571,15 +590,15 @@
               </p>
 
               <p class="text-slate-300 text-sm leading-relaxed">
-                Biological research increasingly depends on large and diverse
-                datasets &mdash; including sequencing outputs, metadata,
-                clinical information, experimental results, and public reference
-                databases. However, these data are often scattered across
-                disconnected systems, inconsistent file formats, or ad-hoc
-                storage locations. Data ingestion and integration frequently
+                Biological research increasingly relies on large, heterogeneous
+                datasets — including sequencing data, clinical records,
+                metadata, assay outputs, and curated databases — but these are
+                often scattered across disconnected systems, inconsistent
+                formats, or ad hoc storage. Data ingestion and integration often
                 rely on manual scripts or poorly documented processes, making
-                workflows fragile, slow to query, and prone to errors as
-                datasets grow.
+                workflows fragile and error-prone as datasets grow. This limits
+                AI readiness, as models require clean, standardized,
+                well-integrated data.
               </p>
 
               <div class="solution-toggle" style="margin-top: 1.25rem">
@@ -590,19 +609,18 @@
                 </p>
                 <div class="solution-content">
                   <p class="text-slate-300 text-sm leading-relaxed">
-                    I design and implement robust data engineering architectures
-                    tailored to biological research environments. I build
-                    automated pipelines that ingest data from sequencing
-                    instruments, external databases, and internal systems while
-                    validating and standardizing formats. I design scalable
-                    storage layers and structured data models that support
-                    efficient querying and downstream analysis. Where
-                    appropriate, I implement data lakes, analytical warehouses,
-                    or graph-based systems for complex biological queries. I
-                    also establish versioning, provenance tracking, and
-                    automated validation so datasets remain consistent,
-                    traceable, and reproducible over time &mdash; creating a
-                    reliable data foundation for scientists and AI systems.
+                    I build automated data pipelines that ingest data from
+                    sequencing instruments, external databases, and internal
+                    research systems while validating and standardizing formats.
+                    I add scalable storage layers and structured data models
+                    that support efficient querying and downstream analysis. I
+                    also implement robust data validation, schema enforcement,
+                    and metadata tracking to ensure consistency and traceability
+                    across datasets. The result is a reliable data foundation
+                    that enables reproducible analysis, simplifies integration
+                    across projects, and scales with growing data volumes
+                    without breaking pipelines. Such foundation also enables
+                    reliable training, deployment, and scaling of AI models.
                   </p>
                 </div>
               </div>
@@ -610,7 +628,11 @@
           </div>
 
           <!-- 6 — Workflow Observability & Monitoring -->
-          <div id="observability" class="solution-card reveal" style="--reveal-i: 5">
+          <div
+            id="observability"
+            class="solution-card reveal"
+            style="--reveal-i: 5"
+          >
             <div
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
@@ -643,18 +665,16 @@
                   <p class="text-slate-300 text-sm leading-relaxed">
                     I implement observability systems that provide real-time
                     visibility into bioinformatics pipelines and cloud
-                    infrastructure. By integrating centralized logging, metrics
-                    collection, and distributed tracing, I enable teams to
-                    quickly detect failures, diagnose performance bottlenecks,
-                    and understand system behavior across services and
-                    workflows. I configure monitoring dashboards, automated
-                    alerts, and health checks that proactively signal when
-                    pipelines fail, stall, or exceed expected runtimes. I also
-                    instrument workflows and infrastructure with structured
-                    telemetry to accelerate root-cause analysis. The result is a
-                    transparent, reliable execution environment where issues are
-                    detected early and research workflows continue running
-                    smoothly.
+                    infrastructure. By integrating centralized logging, metrics,
+                    and distributed tracing across workflows and infrastructure,
+                    I enable teams to quickly detect failures, diagnose
+                    performance bottlenecks, and understand system behavior
+                    across services. I configure monitoring dashboards,
+                    automated alerts, and health checks that proactively signal
+                    when pipelines fail, stall, or exceed expected runtimes. The
+                    result is a transparent, reliable execution environment
+                    where issues are detected early and research workflows
+                    continue running smoothly.
                   </p>
                 </div>
               </div>
@@ -662,7 +682,11 @@
           </div>
 
           <!-- 7 — Cloud Cost Optimization -->
-          <div id="cloud-cost" class="solution-card reveal" style="--reveal-i: 6">
+          <div
+            id="cloud-cost"
+            class="solution-card reveal"
+            style="--reveal-i: 6"
+          >
             <div
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
@@ -679,7 +703,7 @@
                 scale, but often rack up unexpectedly high costs from
                 over-provisioned resources, idle instances, or poorly optimized
                 storage and workflows. Without careful configuration and ongoing
-                oversight, monthly AWS costs can spike without warning,
+                monitoring, monthly AWS or GCP spend can escalate unpredictably,
                 diverting budget away from core research. This makes it hard for
                 teams to scale research workloads without over-investing in
                 infrastructure.
@@ -703,8 +727,8 @@
                     notifications to maintain visibility and prevent surprises.
                     Where possible, I restructure workflows to leverage
                     serverless, on-demand, or batch compute models to reduce
-                    idle-time costs. For long-term workloads, I also evaluate
-                    and configure Reserved Instances or Savings Plans to secure
+                    idle-time costs. For long-term workloads, I evaluate and
+                    configure Reserved Instances or Savings Plans to secure
                     discounted pricing while maintaining flexibility, ensuring
                     predictable and controlled cloud spending.
                   </p>
@@ -714,7 +738,11 @@
           </div>
 
           <!-- 8 — HPC & Cloud Pipeline Engineering -->
-          <div id="hpc-cloud" class="solution-card reveal" style="--reveal-i: 7">
+          <div
+            id="hpc-cloud"
+            class="solution-card reveal"
+            style="--reveal-i: 7"
+          >
             <div
               class="card-accent bg-gradient-to-r from-blue-600 to-blue-400"
             ></div>
@@ -727,14 +755,14 @@
               </p>
 
               <p class="text-slate-300 text-sm leading-relaxed">
-                Modern bioinformatics pipelines often require significant
-                compute resources such as CPU clusters, high-memory nodes, or
-                GPUs. Configuring and managing these environments across HPC
-                systems and cloud platforms can be complex. Pipelines may fail
-                due to misconfigured resources, inefficient scheduling, or
-                incompatible software environments, making it difficult for
-                teams to scale workloads reliably, optimize performance, or move
-                pipelines between HPC and cloud infrastructure.
+                Bioinformatics pipelines often require substantial compute
+                resources, including CPU clusters, high-memory nodes, and GPUs.
+                Provisioning and managing these environments — across both
+                on-premises and cloud-based HPC — is complex. Misconfigured
+                resources, inefficient scheduling, and inconsistent software
+                environments make it difficult to reliably scale workloads,
+                optimize performance, and run pipelines across heterogeneous
+                execution environments.
               </p>
 
               <div class="solution-toggle" style="margin-top: 1.25rem">
@@ -745,19 +773,20 @@
                 </p>
                 <div class="solution-content">
                   <p class="text-slate-300 text-sm leading-relaxed">
-                    I design and implement scalable execution environments for
-                    bioinformatics pipelines across HPC clusters and cloud
-                    platforms. I containerize workflows and integrate them with
-                    orchestration frameworks such as Nextflow or Snakemake to
-                    ensure reproducible execution. I configure scheduling,
-                    resource allocation, and parallelization so pipelines
-                    efficiently use available compute resources. In the cloud, I
-                    build elastic infrastructure that scales with workload
-                    demand while controlling costs. I also implement environment
-                    management, data staging, and performance optimization to
-                    ensure pipelines run reliably, enabling research teams to
-                    process large datasets faster and scale analyses with
-                    confidence.
+                    I configure cloud-based HPC environments for scalable
+                    execution of bioinformatics pipelines. Workflows are
+                    containerized and orchestrated with frameworks such as
+                    Nextflow or Snakemake, enabling reproducible and portable
+                    execution. I optimize scheduling, resource allocation, and
+                    parallelization to fully utilize CPU, memory, and GPU
+                    resources, while building elastic systems that scale
+                    dynamically with workload demand. I implement robust
+                    environment management, data staging, and dependency control
+                    to ensure consistent execution across heterogeneous
+                    infrastructure. The result is a reliable and scalable
+                    pipeline execution platform that helps research teams
+                    process large datasets faster and control infrastructure
+                    complexity.
                   </p>
                 </div>
               </div>
