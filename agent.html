@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Scientific Agent Systems — Márton Münz, PhD</title>
+    <meta
+      name="description"
+      content="Custom scientific agent systems for bioinformatics, biotech, and research workflows. LLM-based agentic systems designed for real scientific environments."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      body {
+        background-color: #020617;
+        font-family: "Inter", sans-serif;
+        color: #f1f5f9;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      .brand-font {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+
+      .bg-glow {
+        position: fixed;
+        top: -10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: 800px;
+        background: radial-gradient(
+          circle at 50% 0%,
+          rgba(37, 99, 235, 0.15) 0%,
+          rgba(2, 6, 23, 0) 70%
+        );
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .dot-overlay {
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px
+        );
+        background-size: 24px 24px;
+        z-index: -1;
+      }
+
+      .glass-card {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      }
+
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .fade-in-up {
+        opacity: 0;
+        animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .delay-200 {
+        animation-delay: 200ms;
+      }
+
+      .text-gradient {
+        background: linear-gradient(to right, #60a5fa, #818cf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      :root {
+        --header-offset: 110px;
+      }
+
+      section[id] {
+        scroll-margin-top: var(--header-offset);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen selection:bg-blue-500/30">
+    <div class="bg-glow"></div>
+    <div class="dot-overlay"></div>
+
+    <header
+      id="siteHeader"
+      class="fixed top-0 w-full z-50 glass-nav transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-1 py-4">
+        <div class="flex items-center justify-between">
+          <a class="flex flex-col group" href="index.html" aria-label="Home">
+            <strong
+              class="text-blue-700 text-xl brand-font tracking-tight group-hover:text-[#818cf8] transition-colors"
+              >Márton Münz, PhD</strong
+            >
+            <span class="text-xs text-slate-900"
+              >Computational Biology • Cloud • ML/AI Consulting</span
+            >
+          </a>
+
+          <button
+            id="menuBtn"
+            class="md:hidden px-4 py-2 border border-slate-300 rounded-full text-sm text-slate-700 bg-slate-100 hover:bg-slate-200"
+          >
+            Menu
+          </button>
+
+          <nav class="hidden md:flex items-center gap-8">
+            <ul class="flex gap-6 text-md text-slate-500 font-medium list-none">
+              <li>
+                <a
+                  href="index.html#services"
+                  class="hover:text-slate-900 transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="hover:text-slate-900 transition-colors"
+                  >About me</a
+                >
+              </li>
+              <li>
+                <a
+                  href="testimonials.html"
+                  class="hover:text-slate-900 transition-colors"
+                  >Testimonials</a
+                >
+              </li>
+              <li>
+                <a
+                  href="faq.html"
+                  class="hover:text-slate-900 transition-colors"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+
+            <div class="flex gap-4 items-center pl-4 border-l border-slate-200">
+              <a
+                href="mailto:contact@martonmunz.com"
+                class="text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                >Email</a
+              >
+              <a
+                href="index.html#book"
+                id="bookTop"
+                class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-lg shadow-blue-900/20"
+                >Book a call</a
+              >
+            </div>
+          </nav>
+        </div>
+
+        <nav
+          id="mobileNav"
+          class="hidden pt-4 pb-2 md:hidden border-t border-slate-200 mt-4"
+        >
+          <ul class="flex flex-col gap-3 text-sm text-slate-600 list-none">
+            <li>
+              <a href="index.html#services" class="block py-2">Services</a>
+            </li>
+            <li><a href="#case-studies" class="block py-2">Case Studies</a></li>
+            <li><a href="#testimonials" class="block py-2">Testimonials</a></li>
+            <li><a href="faq.html" class="block py-2">FAQ</a></li>
+            <li>
+              <a href="#book" class="block py-2 text-blue-400 font-bold"
+                >Book a call</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-32 pb-20 px-6">
+      <section class="max-w-3xl mx-auto">
+        <h1
+          class="text-4xl md:text-5xl font-extrabold text-white mb-12 tracking-tight leading-tight fade-in-up"
+        >
+          Custom AI Agents for <br />
+          <span class="text-gradient">Computational Biology</span>
+        </h1>
+
+        <div
+          class="text-slate-300 leading-relaxed space-y-6 fade-in-up delay-200"
+        >
+          <p>
+            LLM-based AI agents are rapidly gaining traction in biology,
+            highlighted as a
+            <a
+              href="https://www.nature.com/articles/s41592-025-02958-y"
+              target="_blank"
+              style="text-decoration: underline"
+              class="text-blue-300"
+              >“Method to Watch” in the December 2025 issue of Nature Methods</a
+            >. Yet most implementations remain too generic to deliver meaningful
+            impact in real research environments.
+          </p>
+
+          <p>
+            In practice, the limiting factor is not the model or the agent
+            orchestration framework. The real challenge is integration;
+            connecting AI agents to the tools, data, and infrastructure that
+            your team actually relies on.
+          </p>
+          <p>
+            I design and implement
+            <span class="font-bold text-blue-300"
+              >custom agentic systems and LLM-based tools</span
+            >
+            that integrate directly into your computational biology workflows to
+            accelerate your research.
+          </p>
+
+          <h2 class="text-2xl font-bold text-white pt-6">
+            The key bottleneck is integration
+          </h2>
+          <p>
+            Off-the-shelf agents work well for broad, general-purpose tasks. But
+            computational biology operates in highly heterogeneous environments:
+            bespoke pipelines, custom scripts, legacy tools, evolving standards,
+            and fragmented data landscape.
+          </p>
+          <p>In this reality, generic agents can only deliver limited value.</p>
+
+          <p>
+            Real impact comes from systems built around
+            <i class="text-blue-300">your data</i> and
+            <i class="text-blue-300">your workflows</i>. Success depends on
+            whether the agent can integrate into your scientific processes in a
+            reliable, secure, reproducible way.
+          </p>
+
+          <h2 class="text-2xl font-bold text-white pt-6">
+            Built for production science — not demos
+          </h2>
+
+          <p>A production-ready system may need to</p>
+          <ul class="list-disc list-inside space-y-2 text-slate-300 ml-2">
+            <li>
+              connect to internal tools, in-house databases, and bioinformatics
+              pipelines
+            </li>
+            <li>
+              work with custom data models, and heterogeneous file formats
+            </li>
+            <li>
+              coordinate external services, cloud infrastructure, and execution
+              workflows
+            </li>
+            <li>support human-in-the-loop review and approval</li>
+            <li>preserve reproducibility, auditability, and governance</li>
+            <li>fit securely into existing research environments</li>
+          </ul>
+
+          <p>
+            This goes beyond prompt engineering. It requires system design,
+            workflow orchestration, infrastructure integration, and careful
+            implementation around how scientific work is actually done.
+          </p>
+
+          <div class="glass-card rounded-2xl overflow-hidden">
+            <button
+              id="techAreasToggle"
+              class="w-full flex items-center justify-between px-4 py-4 text-left cursor-pointer hover:bg-white/5 transition-colors"
+            >
+              <h3 class="text-white font-bold text-lg m-0">
+                Core Technical Capabilities
+              </h3>
+              <svg
+                id="techAreasChevron"
+                class="w-5 h-5 text-slate-400 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div
+              id="techAreasContent"
+              class="overflow-hidden transition-all duration-300 ease-in-out"
+              style="max-height: 0"
+            >
+              <ul
+                class="list-disc list-inside space-y-2 text-slate-300 ml-2 px-6 pb-6"
+              >
+                <li>Agent Orchestration & Multi-Agent Systems</li>
+                <li>Retrieval (RAG, embeddings, knowledge bases)</li>
+                <li>Data Layer Integration (internal/external data sources)</li>
+                <li>API Connectivity & MCP Servers</li>
+                <li>
+                  Computational Workflow Integration (cloud/HPC pipeline
+                  execution)
+                </li>
+                <li>Human-in-the-Loop Checkpoints</li>
+                <li>
+                  Private LLM Deployment (on-prem / VPC) for Data Security
+                </li>
+                <li>Observability, Tracing & Evals</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 class="text-2xl font-bold text-white pt-6">Example use cases</h2>
+
+          <p>
+            LLM-based workflows and agents can accelerate work in computational
+            biology in many ways. Here are only a few high-impact examples.
+          </p>
+
+          <div class="bg-white rounded-lg overflow-hidden">
+            <button
+              id="example1Toggle"
+              class="w-full flex items-center justify-between px-4 py-4 text-left cursor-pointer hover:bg-slate-100 transition-colors"
+            >
+              <h3 class="text-slate-600 font-bold text-lg m-0">
+                Automated Variant Interpretation Agent
+              </h3>
+              <svg
+                id="example1Chevron"
+                class="w-5 h-5 text-slate-600 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div
+              id="example1Content"
+              class="overflow-hidden transition-all duration-300 ease-in-out"
+              style="max-height: 0"
+            >
+              <div class="px-6 pb-6 text-slate-600 space-y-3">
+                <p>
+                  A multi-step agent system that takes raw variant calls from a
+                  clinical sequencing pipeline, queries internal annotation
+                  databases and public resources (ClinVar, gnomAD, OMIM), and
+                  produces a draft interpretation report with evidence summaries
+                  for each variant.
+                </p>
+                <p>
+                  Human-in-the-loop checkpoints ensure a clinical geneticist
+                  reviews and approves each classification before the report is
+                  finalised. The system integrates directly with the lab's LIMS
+                  and reporting infrastructure.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden">
+            <button
+              id="example1Toggle"
+              class="w-full flex items-center justify-between px-4 py-4 text-left cursor-pointer hover:bg-slate-100 transition-colors"
+            >
+              <h3 class="text-slate-600 font-bold text-lg m-0">
+                Automated Variant Interpretation Agent
+              </h3>
+              <svg
+                id="example1Chevron"
+                class="w-5 h-5 text-slate-600 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div
+              id="example1Content"
+              class="overflow-hidden transition-all duration-300 ease-in-out"
+              style="max-height: 0"
+            >
+              <div class="px-6 pb-6 text-slate-600 space-y-3">
+                <p>
+                  A multi-step agent system that takes raw variant calls from a
+                  clinical sequencing pipeline, queries internal annotation
+                  databases and public resources (ClinVar, gnomAD, OMIM), and
+                  produces a draft interpretation report with evidence summaries
+                  for each variant.
+                </p>
+                <p>
+                  Human-in-the-loop checkpoints ensure a clinical geneticist
+                  reviews and approves each classification before the report is
+                  finalised. The system integrates directly with the lab's LIMS
+                  and reporting infrastructure.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden">
+            <button
+              id="example1Toggle"
+              class="w-full flex items-center justify-between px-4 py-4 text-left cursor-pointer hover:bg-slate-100 transition-colors"
+            >
+              <h3 class="text-slate-600 font-bold text-lg m-0">
+                Automated Variant Interpretation Agent
+              </h3>
+              <svg
+                id="example1Chevron"
+                class="w-5 h-5 text-slate-600 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div
+              id="example1Content"
+              class="overflow-hidden transition-all duration-300 ease-in-out"
+              style="max-height: 0"
+            >
+              <div class="px-6 pb-6 text-slate-600 space-y-3">
+                <p>
+                  A multi-step agent system that takes raw variant calls from a
+                  clinical sequencing pipeline, queries internal annotation
+                  databases and public resources (ClinVar, gnomAD, OMIM), and
+                  produces a draft interpretation report with evidence summaries
+                  for each variant.
+                </p>
+                <p>
+                  Human-in-the-loop checkpoints ensure a clinical geneticist
+                  reviews and approves each classification before the report is
+                  finalised. The system integrates directly with the lab's LIMS
+                  and reporting infrastructure.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg overflow-hidden">
+            <button
+              id="example1Toggle"
+              class="w-full flex items-center justify-between px-4 py-4 text-left cursor-pointer hover:bg-slate-100 transition-colors"
+            >
+              <h3 class="text-slate-600 font-bold text-lg m-0">
+                Automated Variant Interpretation Agent
+              </h3>
+              <svg
+                id="example1Chevron"
+                class="w-5 h-5 text-slate-600 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div
+              id="example1Content"
+              class="overflow-hidden transition-all duration-300 ease-in-out"
+              style="max-height: 0"
+            >
+              <div class="px-6 pb-6 text-slate-600 space-y-3">
+                <p>
+                  A multi-step agent system that takes raw variant calls from a
+                  clinical sequencing pipeline, queries internal annotation
+                  databases and public resources (ClinVar, gnomAD, OMIM), and
+                  produces a draft interpretation report with evidence summaries
+                  for each variant.
+                </p>
+                <p>
+                  Human-in-the-loop checkpoints ensure a clinical geneticist
+                  reviews and approves each classification before the report is
+                  finalised. The system integrates directly with the lab's LIMS
+                  and reporting infrastructure.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="text-2xl font-bold text-white pt-6">My approach</h2>
+
+          <p>
+            I work closely with clients to understand the full context behind
+            the problem — not just the task, but the workflows, constraints,
+            data, and infrastructure around it. From there, I design and
+            implement the system around that use case: defining integrations,
+            structuring workflow logic, and building a deployment that fits
+            cleanly into existing environments. The focus is on delivering
+            systems that work under real conditions. Not prototypes, but
+            reliable tools for day-to-day scientific work.
+          </p>
+          <p>
+            Learn more about working together
+            <a href="faq.html" class="text-blue-300"> from the FAQ.</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="max-w-3xl mx-auto mb-10 mt-16">
+        <div class="glass-card rounded-2xl p-10 md:p-12 text-center">
+          <h2
+            class="text-2xl md:text-3xl font-bold text-white mb-6 tracking-tight"
+          >
+            Where do AI agents fit in your pipeline?
+          </h2>
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10"
+          >
+            <a
+              href="index.html#book"
+              class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-full font-bold transition-all shadow-lg shadow-blue-600/25 hover:scale-105 transform"
+              >Schedule a Call</a
+            >
+            <a
+              href="mailto:contact@martonmunz.com?subject=Project%20inquiry"
+              class="px-6 py-3 rounded-full border border-white/15 text-white font-medium hover:bg-white/5 transition-colors"
+              >Send an Email</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 py-12 bg-slate-950">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <div class="text-slate-500 text-sm">
+          &copy; <span id="year"></span> Márton Münz
+        </div>
+        <div class="flex gap-6 text-sm font-medium text-slate-400">
+          <a
+            href="mailto:contact@martonmunz.com"
+            class="hover:text-white transition-colors"
+            >Email</a
+          >
+          <a
+            href="https://www.linkedin.com/in/marton-munz-phd"
+            target="_blank"
+            class="hover:text-white transition-colors"
+            >LinkedIn</a
+          >
+          <a href="faq.html" class="hover:text-white transition-colors">FAQ</a>
+          <a href="testimonials.html" class="hover:text-white transition-colors"
+            >Testimonials</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      lucide.createIcons();
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileNav = document.getElementById("mobileNav");
+      menuBtn.addEventListener("click", () => {
+        mobileNav.classList.toggle("hidden");
+      });
+
+      // Accordion logic
+      function initAccordion(toggleId, contentId, chevronId) {
+        const toggle = document.getElementById(toggleId);
+        const content = document.getElementById(contentId);
+        const chevron = document.getElementById(chevronId);
+        toggle.addEventListener("click", () => {
+          if (
+            content.style.maxHeight === "0px" ||
+            content.style.maxHeight === "0"
+          ) {
+            content.style.maxHeight = content.scrollHeight + "px";
+            chevron.style.transform = "rotate(180deg)";
+          } else {
+            content.style.maxHeight = "0";
+            chevron.style.transform = "rotate(0deg)";
+          }
+        });
+      }
+
+      initAccordion("techAreasToggle", "techAreasContent", "techAreasChevron");
+      initAccordion("example1Toggle", "example1Content", "example1Chevron");
+      initAccordion("example2Toggle", "example2Content", "example2Chevron");
+      initAccordion("example3Toggle", "example3Content", "example3Chevron");
+    </script>
+  </body>
+</html>
