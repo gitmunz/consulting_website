@@ -65,6 +65,28 @@
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
       }
 
+      .solution-card {
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e293b 50%,
+          #0f172a 100%
+        );
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1.5rem;
+        overflow: hidden;
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s,
+          transform 0.3s;
+      }
+
+      .solution-card:hover {
+        border-color: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+        transform: translateY(-2px);
+      }
+
       .glass-nav {
         background: rgba(255, 255, 255, 0.92);
         backdrop-filter: blur(12px);
@@ -333,24 +355,30 @@
             </div>
           </div>
 
-          <h2 class="text-2xl font-bold text-white pt-6">Example use cases</h2>
+        </div>
+      </section>
 
-          <p>
+      <section class="py-16 px-6 -mx-6" style="background: white">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Example use cases</h2>
+
+          <p class="text-slate-600 mb-8">
             LLM-based workflows and agents can accelerate work in computational
             biology in many ways. Here are only a few high-impact examples.
           </p>
 
-          <div class="bg-white rounded-lg overflow-hidden">
+          <div class="space-y-6">
+          <div class="solution-card">
             <button
               id="example1Toggle"
-              class="w-full flex items-center justify-between px-4 py-4 text-left cursor-pointer hover:bg-slate-100 transition-colors"
+              class="w-full flex items-center justify-between px-6 py-4 text-left cursor-pointer hover:bg-white/5 transition-colors"
             >
-              <h3 class="text-slate-600 font-bold text-lg m-0">
+              <h3 class="text-white font-bold text-lg m-0">
                 Automated Variant Interpretation Agent
               </h3>
               <svg
                 id="example1Chevron"
-                class="w-5 h-5 text-slate-600 transition-transform duration-300"
+                class="w-5 h-5 text-slate-400 transition-transform duration-300"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
@@ -364,7 +392,7 @@
               class="overflow-hidden transition-all duration-300 ease-in-out"
               style="max-height: 0"
             >
-              <div class="px-6 pb-6 text-slate-600 space-y-3">
+              <div class="px-6 pb-6 text-slate-300 space-y-3">
                 <p>
                   A multi-step agent system that takes raw variant calls from a
                   clinical sequencing pipeline, queries internal annotation
@@ -381,17 +409,17 @@
               </div>
             </div>
           </div>
-          <div class="bg-white rounded-lg overflow-hidden">
+          <div class="solution-card">
             <button
-              id="example1Toggle"
-              class="w-full flex items-center justify-between px-4 py-4 text-left cursor-pointer hover:bg-slate-100 transition-colors"
+              id="example2Toggle"
+              class="w-full flex items-center justify-between px-6 py-4 text-left cursor-pointer hover:bg-white/5 transition-colors"
             >
-              <h3 class="text-slate-600 font-bold text-lg m-0">
+              <h3 class="text-white font-bold text-lg m-0">
                 Automated Variant Interpretation Agent
               </h3>
               <svg
-                id="example1Chevron"
-                class="w-5 h-5 text-slate-600 transition-transform duration-300"
+                id="example2Chevron"
+                class="w-5 h-5 text-slate-400 transition-transform duration-300"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
@@ -401,11 +429,11 @@
               </svg>
             </button>
             <div
-              id="example1Content"
+              id="example2Content"
               class="overflow-hidden transition-all duration-300 ease-in-out"
               style="max-height: 0"
             >
-              <div class="px-6 pb-6 text-slate-600 space-y-3">
+              <div class="px-6 pb-6 text-slate-300 space-y-3">
                 <p>
                   A multi-step agent system that takes raw variant calls from a
                   clinical sequencing pipeline, queries internal annotation
@@ -422,17 +450,17 @@
               </div>
             </div>
           </div>
-          <div class="bg-white rounded-lg overflow-hidden">
+          <div class="solution-card">
             <button
-              id="example1Toggle"
-              class="w-full flex items-center justify-between px-4 py-4 text-left cursor-pointer hover:bg-slate-100 transition-colors"
+              id="example3Toggle"
+              class="w-full flex items-center justify-between px-6 py-4 text-left cursor-pointer hover:bg-white/5 transition-colors"
             >
-              <h3 class="text-slate-600 font-bold text-lg m-0">
+              <h3 class="text-white font-bold text-lg m-0">
                 Automated Variant Interpretation Agent
               </h3>
               <svg
-                id="example1Chevron"
-                class="w-5 h-5 text-slate-600 transition-transform duration-300"
+                id="example3Chevron"
+                class="w-5 h-5 text-slate-400 transition-transform duration-300"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
@@ -442,11 +470,11 @@
               </svg>
             </button>
             <div
-              id="example1Content"
+              id="example3Content"
               class="overflow-hidden transition-all duration-300 ease-in-out"
               style="max-height: 0"
             >
-              <div class="px-6 pb-6 text-slate-600 space-y-3">
+              <div class="px-6 pb-6 text-slate-300 space-y-3">
                 <p>
                   A multi-step agent system that takes raw variant calls from a
                   clinical sequencing pipeline, queries internal annotation
@@ -463,17 +491,17 @@
               </div>
             </div>
           </div>
-          <div class="bg-white rounded-lg overflow-hidden">
+          <div class="solution-card">
             <button
-              id="example1Toggle"
-              class="w-full flex items-center justify-between px-4 py-4 text-left cursor-pointer hover:bg-slate-100 transition-colors"
+              id="example4Toggle"
+              class="w-full flex items-center justify-between px-6 py-4 text-left cursor-pointer hover:bg-white/5 transition-colors"
             >
-              <h3 class="text-slate-600 font-bold text-lg m-0">
+              <h3 class="text-white font-bold text-lg m-0">
                 Automated Variant Interpretation Agent
               </h3>
               <svg
-                id="example1Chevron"
-                class="w-5 h-5 text-slate-600 transition-transform duration-300"
+                id="example4Chevron"
+                class="w-5 h-5 text-slate-400 transition-transform duration-300"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
@@ -483,11 +511,11 @@
               </svg>
             </button>
             <div
-              id="example1Content"
+              id="example4Content"
               class="overflow-hidden transition-all duration-300 ease-in-out"
               style="max-height: 0"
             >
-              <div class="px-6 pb-6 text-slate-600 space-y-3">
+              <div class="px-6 pb-6 text-slate-300 space-y-3">
                 <p>
                   A multi-step agent system that takes raw variant calls from a
                   clinical sequencing pipeline, queries internal annotation
@@ -504,6 +532,14 @@
               </div>
             </div>
           </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-3xl mx-auto pt-16 px-6">
+        <div
+          class="text-slate-300 leading-relaxed space-y-6"
+        >
 
           <h2 class="text-2xl font-bold text-white pt-6">My approach</h2>
 
@@ -610,6 +646,7 @@
       initAccordion("example1Toggle", "example1Content", "example1Chevron");
       initAccordion("example2Toggle", "example2Content", "example2Chevron");
       initAccordion("example3Toggle", "example3Content", "example3Chevron");
+      initAccordion("example4Toggle", "example4Content", "example4Chevron");
     </script>
   </body>
 </html>

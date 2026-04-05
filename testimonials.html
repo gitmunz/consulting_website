@@ -16,9 +16,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
       body {
-        background-color: #020617;
+        background-color: #ffffff;
         font-family: "Inter", sans-serif;
-        color: #f1f5f9;
+        color: #1e293b;
         margin: 0;
         overflow-x: hidden;
       }
@@ -32,37 +32,37 @@
       }
 
       .bg-glow {
-        position: fixed;
-        top: -10%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100vw;
-        height: 800px;
-        background: radial-gradient(
-          circle at 50% 0%,
-          rgba(37, 99, 235, 0.15) 0%,
-          rgba(2, 6, 23, 0) 70%
-        );
-        z-index: -1;
-        pointer-events: none;
+        display: none;
       }
 
       .dot-overlay {
-        position: fixed;
-        inset: 0;
-        background-image: radial-gradient(
-          rgba(255, 255, 255, 0.03) 1px,
-          transparent 1px
-        );
-        background-size: 24px 24px;
-        z-index: -1;
+        display: none;
       }
 
-      .glass-card {
-        background: rgba(15, 23, 42, 0.6);
+      .solution-card {
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e293b 50%,
+          #0f172a 100%
+        );
         border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(12px);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        border-radius: 1.5rem;
+        overflow: hidden;
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s,
+          transform 0.3s;
+      }
+
+      .solution-card:hover {
+        border-color: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+        transform: translateY(-2px);
+      }
+
+      .solution-card .card-body {
+        padding: 1.75rem;
       }
 
       .glass-nav {
@@ -92,7 +92,7 @@
       }
 
       .text-gradient {
-        background: linear-gradient(to right, #60a5fa, #818cf8);
+        background: linear-gradient(to right, #2563eb, #4f46e5);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -221,16 +221,17 @@
     <main class="pt-32 pb-20 px-6">
       <section class="max-w-3xl mx-auto mb-16">
         <h1
-          class="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight leading-tight fade-in-up"
+          class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight fade-in-up"
         >
           Client Testimonials
         </h1>
       </section>
 
       <!-- Featured testimonial -->
-      <section class="max-w-3xl mx-auto mb-12">
-        <div class="glass-card rounded-2xl p-8 md:p-12 relative reveal">
-          <p class="text-lg text-slate-200 leading-relaxed mb-8">
+      <section class="max-w-3xl mx-auto mb-8">
+        <div class="solution-card relative reveal">
+          <div class="card-body">
+          <p class="text-lg text-slate-300 leading-relaxed mb-8">
             "I had the good fortune to work with Márton for several years on
             several projects. He has a rare ability to design complex, highly
             effective and efficient code that delivers exactly what is needed.
@@ -243,24 +244,28 @@
             were vital to our successes."
           </p>
           <div class="border-t border-white/10 pt-6">
-            <p class="text-white font-bold text-lg">Nazneen Rahman, MD PhD</p>
+            <p class="text-white font-bold text-lg">
+              Nazneen Rahman, MD PhD
+            </p>
             <p class="text-sm text-blue-300 font-medium">
               Professor of Human Genetics, Institute of Cancer Research
             </p>
+          </div>
           </div>
         </div>
       </section>
 
       <!-- Anonymous testimonials -->
       <section class="max-w-3xl mx-auto mb-20">
-        <p class="text-slate-400 text-lg mb-8 reveal">
+        <p class="text-slate-500 text-lg mb-8 reveal">
           To preserve confidentiality, the following testimonials have been
           anonymized.
         </p>
 
         <div class="space-y-6">
-          <div class="glass-card rounded-2xl p-8 reveal">
-            <p class="text-lg text-slate-200 leading-relaxed mb-6">
+          <div class="solution-card reveal">
+            <div class="card-body">
+            <p class="text-lg text-slate-300 leading-relaxed mb-6">
               "Working with Márton was an absolute pleasure. His bioinformatics
               expertise and analytical insight consistently delivered effective
               analyses for our research in a timely manner. He demonstrated
@@ -277,10 +282,12 @@
                 CEO, US biotech company
               </p>
             </div>
+            </div>
           </div>
 
-          <div class="glass-card rounded-2xl p-8 reveal">
-            <p class="text-lg text-slate-200 leading-relaxed mb-6">
+          <div class="solution-card reveal">
+            <div class="card-body">
+            <p class="text-lg text-slate-300 leading-relaxed mb-6">
               "I've had the privilege of working with Márton Münz over the past
               five years across both academic and startup environments, during
               which he has consistently demonstrated outstanding expertise,
@@ -302,10 +309,12 @@
                 Head of Science and Co-Founder, UK biotech company
               </p>
             </div>
+            </div>
           </div>
 
-          <div class="glass-card rounded-2xl p-8 reveal">
-            <p class="text-lg text-slate-200 leading-relaxed mb-6">
+          <div class="solution-card reveal">
+            <div class="card-body">
+            <p class="text-lg text-slate-300 leading-relaxed mb-6">
               "We really enjoyed working with Márton in our company. During his
               time supporting our bioinformatics and IT teams, Márton played a
               crucial role in improving our data infrastructure. He swiftly took
@@ -324,10 +333,12 @@
                 CSO, UK biotech company
               </p>
             </div>
+            </div>
           </div>
 
-          <div class="glass-card rounded-2xl p-8 reveal">
-            <p class="text-lg text-slate-200 leading-relaxed mb-6">
+          <div class="solution-card reveal">
+            <div class="card-body">
+            <p class="text-lg text-slate-300 leading-relaxed mb-6">
               "Márton is an exceptional bioinformatics scientist and consultant.
               His vast knowledge, problem-solving skills, and genuine care for
               quality work sets him apart in the field. During our
@@ -349,10 +360,12 @@
                 Principal Scientist, US biotech company
               </p>
             </div>
+            </div>
           </div>
 
-          <div class="glass-card rounded-2xl p-8 reveal">
-            <p class="text-lg text-slate-200 leading-relaxed mb-6">
+          <div class="solution-card reveal">
+            <div class="card-body">
+            <p class="text-lg text-slate-300 leading-relaxed mb-6">
               "I have worked closely with Márton for over 2 years. He is very
               enthusiastic and eager to take on a challenge. We have worked on
               some fairly complicated projects, such as RNA-Seq dose-response
@@ -369,10 +382,12 @@
                 company
               </p>
             </div>
+            </div>
           </div>
 
-          <div class="glass-card rounded-2xl p-8 reveal">
-            <p class="text-lg text-slate-200 leading-relaxed mb-6">
+          <div class="solution-card reveal">
+            <div class="card-body">
+            <p class="text-lg text-slate-300 leading-relaxed mb-6">
               "We worked with Márton on a bioinformatics project during the
               early days of the company when we needed to build a database and
               bioinformatics tools to perform dry lab research. As our team was
@@ -390,10 +405,12 @@
                 Director, Singapore biotech company
               </p>
             </div>
+            </div>
           </div>
 
-          <div class="glass-card rounded-2xl p-8 reveal">
-            <p class="text-lg text-slate-200 leading-relaxed mb-6">
+          <div class="solution-card reveal">
+            <div class="card-body">
+            <p class="text-lg text-slate-300 leading-relaxed mb-6">
               "I had the pleasure to work with Márton on a very novel analysis
               of large genomic datasets, and he was a total pleasure to interact
               with. Creative, committed, and diligent — Márton is a model of
@@ -405,10 +422,12 @@
                 Co-Founder and CSO, US biotech company
               </p>
             </div>
+            </div>
           </div>
 
-          <div class="glass-card rounded-2xl p-8 reveal">
-            <p class="text-lg text-slate-200 leading-relaxed mb-6">
+          <div class="solution-card reveal">
+            <div class="card-body">
+            <p class="text-lg text-slate-300 leading-relaxed mb-6">
               "Márton handled all of the bioinformatics on the initial
               single-cell gene expression we were doing to characterize rare
               cells of interest. He handled all of the intial processing of 10X
@@ -436,10 +455,12 @@
                 startup company
               </p>
             </div>
+            </div>
           </div>
 
-          <div class="glass-card rounded-2xl p-8 reveal">
-            <p class="text-lg text-slate-200 leading-relaxed mb-6">
+          <div class="solution-card reveal">
+            <div class="card-body">
+            <p class="text-lg text-slate-300 leading-relaxed mb-6">
               "Finding the right balance of internal compbio capabilities with
               bringing in contractors can be tough. It requires contractors to
               quickly assimilate into internal workflows and to bring their own
@@ -452,15 +473,23 @@
                 Founder and CSO, UK biotech company
               </p>
             </div>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- CTA -->
       <section class="max-w-3xl mx-auto mb-10">
-        <div class="glass-card rounded-2xl p-10 md:p-12 text-center">
+        <div
+          class="rounded-2xl p-10 md:p-12 text-center"
+          style="
+            background: #f8fafc;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+          "
+        >
           <h2
-            class="text-2xl md:text-3xl font-bold text-white mb-6 tracking-tight"
+            class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 tracking-tight"
           >
             Interested in working together?
           </h2>
@@ -474,7 +503,7 @@
             >
             <a
               href="mailto:contact@martonmunz.com?subject=Project%20inquiry"
-              class="px-6 py-3 rounded-full border border-white/15 text-white font-medium hover:bg-white/5 transition-colors"
+              class="px-6 py-3 rounded-full border border-slate-300 text-slate-700 font-medium hover:bg-slate-100 transition-colors"
               >Send an Email</a
             >
           </div>
@@ -482,7 +511,7 @@
       </section>
     </main>
 
-    <footer class="border-t border-white/10 py-12 bg-slate-950">
+    <footer class="border-t border-slate-200 py-12 bg-slate-950">
       <div
         class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6"
       >
