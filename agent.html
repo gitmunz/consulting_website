@@ -311,7 +311,7 @@
             implementation around how scientific work is actually done.
           </p>
 
-          <div class="glass-card rounded-2xl overflow-hidden">
+          <div class="glass-card rounded-2xl overflow-hidden pb-6">
             <button
               id="techAreasToggle"
               class="w-full flex items-center justify-between px-4 py-4 text-left cursor-pointer hover:bg-white/5 transition-colors"
@@ -354,13 +354,14 @@
               </ul>
             </div>
           </div>
-
         </div>
       </section>
 
       <section class="py-16 px-6 -mx-6" style="background: white">
         <div class="max-w-3xl mx-auto">
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">Example use cases</h2>
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">
+            Example use cases
+          </h2>
 
           <p class="text-slate-600 mb-8">
             LLM-based workflows and agents can accelerate work in computational
@@ -368,179 +369,198 @@
           </p>
 
           <div class="space-y-6">
-          <div class="solution-card">
-            <button
-              id="example1Toggle"
-              class="w-full flex items-center justify-between px-6 py-4 text-left cursor-pointer hover:bg-white/5 transition-colors"
-            >
-              <h3 class="text-white font-bold text-lg m-0">
-                Automated Variant Interpretation Agent
-              </h3>
-              <svg
-                id="example1Chevron"
-                class="w-5 h-5 text-slate-400 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
+            <div class="solution-card">
+              <button
+                id="example1Toggle"
+                class="w-full flex items-center justify-between px-6 py-4 text-left cursor-pointer hover:bg-white/5 transition-colors"
               >
-                <path d="M6 9l6 6 6-6" />
-              </svg>
-            </button>
-            <div
-              id="example1Content"
-              class="overflow-hidden transition-all duration-300 ease-in-out"
-              style="max-height: 0"
-            >
-              <div class="px-6 pb-6 text-slate-300 space-y-3">
-                <p>
-                  A multi-step agent system that takes raw variant calls from a
-                  clinical sequencing pipeline, queries internal annotation
-                  databases and public resources (ClinVar, gnomAD, OMIM), and
-                  produces a draft interpretation report with evidence summaries
-                  for each variant.
-                </p>
-                <p>
-                  Human-in-the-loop checkpoints ensure a clinical geneticist
-                  reviews and approves each classification before the report is
-                  finalised. The system integrates directly with the lab's LIMS
-                  and reporting infrastructure.
-                </p>
+                <h3 class="text-white font-bold text-lg m-0">
+                  AI Agent that integrates multimodal data and generates
+                  hypotheses
+                </h3>
+                <svg
+                  id="example1Chevron"
+                  class="w-5 h-5 text-slate-400 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              <div
+                id="example1Content"
+                class="overflow-hidden transition-all duration-300 ease-in-out"
+                style="max-height: 0"
+              >
+                <div class="px-6 pb-6 text-slate-300 space-y-3">
+                  <p>
+                    User poses complex research questions to the agent, such as:
+                    <i
+                      >"Using publicly available gene expression and clinical
+                      outcome data and relevant publications not older than 5
+                      years, can you identify novel biomarkers for drug
+                      resistance in triple-negative breast cancer, and propose a
+                      mechanism by which they mediate resistance?"</i
+                    >
+                  </p>
+                  <p>
+                    To answer this, the agent must orchestrate a sequence of
+                    coordinated tasks to check heterogeneous data sources such
+                    as GEO, TCGA, and cBioPortal for transcriptomic and clinical
+                    datasets, while simultaneously retrieving recent literature
+                    from PubMed. It then needs to reason across diverse types of
+                    information, and synthesize its findings into a coherent
+                    hypothesis.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="solution-card">
-            <button
-              id="example2Toggle"
-              class="w-full flex items-center justify-between px-6 py-4 text-left cursor-pointer hover:bg-white/5 transition-colors"
-            >
-              <h3 class="text-white font-bold text-lg m-0">
-                Automated Variant Interpretation Agent
-              </h3>
-              <svg
-                id="example2Chevron"
-                class="w-5 h-5 text-slate-400 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
+            <div class="solution-card">
+              <button
+                id="example2Toggle"
+                class="w-full flex items-center justify-between px-6 py-4 text-left cursor-pointer hover:bg-white/5 transition-colors"
               >
-                <path d="M6 9l6 6 6-6" />
-              </svg>
-            </button>
-            <div
-              id="example2Content"
-              class="overflow-hidden transition-all duration-300 ease-in-out"
-              style="max-height: 0"
-            >
-              <div class="px-6 pb-6 text-slate-300 space-y-3">
-                <p>
-                  A multi-step agent system that takes raw variant calls from a
-                  clinical sequencing pipeline, queries internal annotation
-                  databases and public resources (ClinVar, gnomAD, OMIM), and
-                  produces a draft interpretation report with evidence summaries
-                  for each variant.
-                </p>
-                <p>
-                  Human-in-the-loop checkpoints ensure a clinical geneticist
-                  reviews and approves each classification before the report is
-                  finalised. The system integrates directly with the lab's LIMS
-                  and reporting infrastructure.
-                </p>
+                <h3 class="text-white font-bold text-lg m-0">
+                  AI Agent that interacts with your AWS cloud infrastructure
+                </h3>
+                <svg
+                  id="example2Chevron"
+                  class="w-5 h-5 text-slate-400 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              <div
+                id="example2Content"
+                class="overflow-hidden transition-all duration-300 ease-in-out"
+                style="max-height: 0"
+              >
+                <div class="px-6 pb-6 text-slate-300 space-y-3">
+                  <p>
+                    User tells the AI agent to modify the access control
+                    settings of a protected dataset: <i
+                      >“Grant our bioinformatician, John Doe, access to the
+                      RNA-seq dataset RNASeq_ASSAY_1, excluding samples 1–6.”</i
+                    >
+                  </p>
+                  <p>
+                    To fulfill this request, the agent needs to modify the
+                    underlying AWS IAM policy to give a user permission to
+                    access an S3 bucket folder, excluding the specified
+                    subfolders. Data access control is therefore as simple as
+                    issuing a natural language instruction, shielding users from
+                    the complexity of AWS policy syntax and reducing the risk of
+                    misconfiguration.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="solution-card">
-            <button
-              id="example3Toggle"
-              class="w-full flex items-center justify-between px-6 py-4 text-left cursor-pointer hover:bg-white/5 transition-colors"
-            >
-              <h3 class="text-white font-bold text-lg m-0">
-                Automated Variant Interpretation Agent
-              </h3>
-              <svg
-                id="example3Chevron"
-                class="w-5 h-5 text-slate-400 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
+            <div class="solution-card">
+              <button
+                id="example3Toggle"
+                class="w-full flex items-center justify-between px-6 py-4 text-left cursor-pointer hover:bg-white/5 transition-colors"
               >
-                <path d="M6 9l6 6 6-6" />
-              </svg>
-            </button>
-            <div
-              id="example3Content"
-              class="overflow-hidden transition-all duration-300 ease-in-out"
-              style="max-height: 0"
-            >
-              <div class="px-6 pb-6 text-slate-300 space-y-3">
-                <p>
-                  A multi-step agent system that takes raw variant calls from a
-                  clinical sequencing pipeline, queries internal annotation
-                  databases and public resources (ClinVar, gnomAD, OMIM), and
-                  produces a draft interpretation report with evidence summaries
-                  for each variant.
-                </p>
-                <p>
-                  Human-in-the-loop checkpoints ensure a clinical geneticist
-                  reviews and approves each classification before the report is
-                  finalised. The system integrates directly with the lab's LIMS
-                  and reporting infrastructure.
-                </p>
+                <h3 class="text-white font-bold text-lg m-0">
+                  AI Agent that queries both internal and external data
+                  repositories
+                </h3>
+                <svg
+                  id="example3Chevron"
+                  class="w-5 h-5 text-slate-400 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              <div
+                id="example3Content"
+                class="overflow-hidden transition-all duration-300 ease-in-out"
+                style="max-height: 0"
+              >
+                <div class="px-6 pb-6 text-slate-300 space-y-3">
+                  <p>
+                    User instructs AI agent:
+                    <i
+                      >“Find peer-reviewed publications about colorectal cancer
+                      that discuss any genes we found to be differentially
+                      expressed in our in-house assays on Grade 4 CRC samples.
+                      Have any of those been linked to metastasis?"</i
+                    >
+                  </p>
+                  <p>
+                    In order to answer this request, the agent needs to have
+                    access to the internal data repository containing the
+                    results of the in-house assays, and any associated metadata
+                    about the samples. It also needs to interface with external
+                    data sources such as PubMed to retrieve relevant papers.
+                    This setup enables the agent to seamlessly integrate
+                    internal experimental data with external scientific
+                    knowledge to generate more comprehensive and context-aware
+                    insights.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="solution-card">
-            <button
-              id="example4Toggle"
-              class="w-full flex items-center justify-between px-6 py-4 text-left cursor-pointer hover:bg-white/5 transition-colors"
-            >
-              <h3 class="text-white font-bold text-lg m-0">
-                Automated Variant Interpretation Agent
-              </h3>
-              <svg
-                id="example4Chevron"
-                class="w-5 h-5 text-slate-400 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
+            <div class="solution-card">
+              <button
+                id="example4Toggle"
+                class="w-full flex items-center justify-between px-6 py-4 text-left cursor-pointer hover:bg-white/5 transition-colors"
               >
-                <path d="M6 9l6 6 6-6" />
-              </svg>
-            </button>
-            <div
-              id="example4Content"
-              class="overflow-hidden transition-all duration-300 ease-in-out"
-              style="max-height: 0"
-            >
-              <div class="px-6 pb-6 text-slate-300 space-y-3">
-                <p>
-                  A multi-step agent system that takes raw variant calls from a
-                  clinical sequencing pipeline, queries internal annotation
-                  databases and public resources (ClinVar, gnomAD, OMIM), and
-                  produces a draft interpretation report with evidence summaries
-                  for each variant.
-                </p>
-                <p>
-                  Human-in-the-loop checkpoints ensure a clinical geneticist
-                  reviews and approves each classification before the report is
-                  finalised. The system integrates directly with the lab's LIMS
-                  and reporting infrastructure.
-                </p>
+                <h3 class="text-white font-bold text-lg m-0">
+                  AI Agent that operates on sensitive data without external
+                  exposure
+                </h3>
+                <svg
+                  id="example4Chevron"
+                  class="w-5 h-5 text-slate-400 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              <div
+                id="example4Content"
+                class="overflow-hidden transition-all duration-300 ease-in-out"
+                style="max-height: 0"
+              >
+                <div class="px-6 pb-6 text-slate-300 space-y-3">
+                  <p>
+                    If the agent works with sensitive or proprietary data,
+                    transmitting information to third-party LLM API endpoints
+                    (e.g., those provided by OpenAI or Anthropic) may raise data
+                    confidentiality and regulatory compliance concerns.
+                  </p>
+                  <p>
+                    The solution is a private, secure deployment of open-source
+                    or open-weight LLMs, either locally or in the cloud, with
+                    inference running on on-premises or VPC-isolated
+                    infrastructure. While LLM inference typically requires
+                    powerful GPUs to achieve low latency, open models are
+                    becoming increasingly efficient and accessible. Smaller
+                    parameter footprints, quantization techniques, and optimized
+                    runtimes are significantly reducing hardware requirements.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
       </section>
 
       <section class="max-w-3xl mx-auto pt-16 px-6">
-        <div
-          class="text-slate-300 leading-relaxed space-y-6"
-        >
-
+        <div class="text-slate-300 leading-relaxed space-y-6">
           <h2 class="text-2xl font-bold text-white pt-6">My approach</h2>
 
           <p>
@@ -624,29 +644,60 @@
       });
 
       // Accordion logic
-      function initAccordion(toggleId, contentId, chevronId) {
-        const toggle = document.getElementById(toggleId);
-        const content = document.getElementById(contentId);
-        const chevron = document.getElementById(chevronId);
-        toggle.addEventListener("click", () => {
-          if (
-            content.style.maxHeight === "0px" ||
-            content.style.maxHeight === "0"
-          ) {
-            content.style.maxHeight = content.scrollHeight + "px";
-            chevron.style.transform = "rotate(180deg)";
-          } else {
-            content.style.maxHeight = "0";
-            chevron.style.transform = "rotate(0deg)";
-          }
+      const accordions = [
+        {
+          toggleId: "techAreasToggle",
+          contentId: "techAreasContent",
+          chevronId: "techAreasChevron",
+        },
+        {
+          toggleId: "example1Toggle",
+          contentId: "example1Content",
+          chevronId: "example1Chevron",
+        },
+        {
+          toggleId: "example2Toggle",
+          contentId: "example2Content",
+          chevronId: "example2Chevron",
+        },
+        {
+          toggleId: "example3Toggle",
+          contentId: "example3Content",
+          chevronId: "example3Chevron",
+        },
+        {
+          toggleId: "example4Toggle",
+          contentId: "example4Content",
+          chevronId: "example4Chevron",
+        },
+      ];
+
+      function closeAll(except) {
+        accordions.forEach(({ contentId, chevronId }) => {
+          if (contentId === except) return;
+          document.getElementById(contentId).style.maxHeight = "0";
+          document.getElementById(chevronId).style.transform = "rotate(0deg)";
         });
       }
 
-      initAccordion("techAreasToggle", "techAreasContent", "techAreasChevron");
-      initAccordion("example1Toggle", "example1Content", "example1Chevron");
-      initAccordion("example2Toggle", "example2Content", "example2Chevron");
-      initAccordion("example3Toggle", "example3Content", "example3Chevron");
-      initAccordion("example4Toggle", "example4Content", "example4Chevron");
+      accordions.forEach(({ toggleId, contentId, chevronId }) => {
+        document.getElementById(toggleId).addEventListener("click", () => {
+          const content = document.getElementById(contentId);
+          const chevron = document.getElementById(chevronId);
+          const isOpen =
+            content.style.maxHeight !== "0px" &&
+            content.style.maxHeight !== "0" &&
+            content.style.maxHeight !== "";
+          closeAll(isOpen ? null : contentId);
+          if (isOpen) {
+            content.style.maxHeight = "0";
+            chevron.style.transform = "rotate(0deg)";
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            chevron.style.transform = "rotate(180deg)";
+          }
+        });
+      });
     </script>
   </body>
 </html>
