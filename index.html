@@ -1205,6 +1205,12 @@
       closeModal.addEventListener("click", hideModal);
       backdrop.addEventListener("click", hideModal);
 
+      // Open modal when navigating from another page via index.html#book
+      if (window.location.hash === "#book") {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+
       window.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && !modal.classList.contains("hidden"))
           hideModal();
