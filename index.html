@@ -16,43 +16,66 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://martonmunz.com/" />
-    <meta property="og:title" content="Márton Münz, PhD — Computational Biology, Cloud & ML/AI Consulting" />
-    <meta property="og:description" content="Production-grade bioinformatics, AI, and cloud systems for biotech teams. NGS pipelines, MLOps, secure cloud infrastructure, and LLM workflows." />
+    <meta
+      property="og:title"
+      content="Márton Münz, PhD — Computational Biology, Cloud & ML/AI Consulting"
+    />
+    <meta
+      property="og:description"
+      content="Production-grade bioinformatics, AI, and cloud systems for biotech teams. NGS pipelines, MLOps, secure cloud infrastructure, and LLM workflows."
+    />
     <meta property="og:image" content="https://martonmunz.com/prof.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Márton Münz, PhD — Computational Biology, Cloud & ML/AI Consulting" />
-    <meta name="twitter:description" content="Production-grade bioinformatics, AI, and cloud systems for biotech teams. NGS pipelines, MLOps, secure cloud infrastructure, and LLM workflows." />
+    <meta
+      name="twitter:title"
+      content="Márton Münz, PhD — Computational Biology, Cloud & ML/AI Consulting"
+    />
+    <meta
+      name="twitter:description"
+      content="Production-grade bioinformatics, AI, and cloud systems for biotech teams. NGS pipelines, MLOps, secure cloud infrastructure, and LLM workflows."
+    />
     <meta name="twitter:image" content="https://martonmunz.com/prof.jpg" />
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Person",
-          "@id": "https://martonmunz.com/#person",
-          "name": "Márton Münz",
-          "honorificSuffix": "PhD",
-          "jobTitle": "Computational Biologist & Bioinformatics Consultant",
-          "url": "https://martonmunz.com/",
-          "sameAs": ["https://www.linkedin.com/in/marton-munz-phd"],
-          "image": "https://martonmunz.com/prof.jpg",
-          "email": "contact@martonmunz.com",
-          "alumniOf": [
-            {"@type": "EducationalOrganization", "name": "University of Oxford"},
-            {"@type": "EducationalOrganization", "name": "Eötvös Loránd University"}
-          ]
-        },
-        {
-          "@type": "ProfessionalService",
-          "@id": "https://martonmunz.com/#service",
-          "name": "Márton Münz — Bioinformatics & AI Consulting",
-          "url": "https://martonmunz.com/",
-          "provider": {"@id": "https://martonmunz.com/#person"},
-          "description": "Production-grade bioinformatics, AI, and cloud systems for biotech teams. NGS pipelines, MLOps, secure cloud infrastructure, and LLM workflows.",
-          "serviceType": ["Bioinformatics Consulting", "AI Systems Development", "Cloud Infrastructure", "NGS Pipeline Development"]
-        }
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://martonmunz.com/#person",
+            "name": "Márton Münz",
+            "honorificSuffix": "PhD",
+            "jobTitle": "Computational Biologist & Bioinformatics Consultant",
+            "url": "https://martonmunz.com/",
+            "sameAs": ["https://www.linkedin.com/in/marton-munz-phd"],
+            "image": "https://martonmunz.com/prof.jpg",
+            "email": "contact@martonmunz.com",
+            "alumniOf": [
+              {
+                "@type": "EducationalOrganization",
+                "name": "University of Oxford"
+              },
+              {
+                "@type": "EducationalOrganization",
+                "name": "Eötvös Loránd University"
+              }
+            ]
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://martonmunz.com/#service",
+            "name": "Márton Münz — Bioinformatics & AI Consulting",
+            "url": "https://martonmunz.com/",
+            "provider": { "@id": "https://martonmunz.com/#person" },
+            "description": "Production-grade bioinformatics, AI, and cloud systems for biotech teams. NGS pipelines, MLOps, secure cloud infrastructure, and LLM workflows.",
+            "serviceType": [
+              "Bioinformatics Consulting",
+              "AI Systems Development",
+              "Cloud Infrastructure",
+              "NGS Pipeline Development"
+            ]
+          }
+        ]
+      }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -336,12 +359,21 @@
           class="hidden pt-4 pb-2 md:hidden border-t border-slate-200 mt-4"
         >
           <ul class="flex flex-col gap-3 text-sm text-slate-600 list-none">
-            <li><a href="#services" class="block py-2">Services</a></li>
-            <li><a href="#case-studies" class="block py-2">Case Studies</a></li>
-            <li><a href="#testimonials" class="block py-2">Testimonials</a></li>
+            <li>
+              <a href="index.html#services" class="block py-2">Services</a>
+            </li>
+            <li><a href="about.html" class="block py-2">About me</a></li>
+            <li>
+              <a href="testimonials.html" class="block py-2">Testimonials</a>
+            </li>
             <li><a href="faq.html" class="block py-2">FAQ</a></li>
             <li>
-              <a href="#book" class="block py-2 text-blue-400 font-bold"
+              <a href="mailto:contact@martonmunz.com" class="block py-2"
+                >Email</a
+              >
+            </li>
+            <li>
+              <a href="index.html#book" class="block py-2 text-blue-400 font-bold"
                 >Book a call</a
               >
             </li>
@@ -366,16 +398,16 @@
             <h1
               class="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6 tracking-tight"
             >
-              Cloud-Native Bioinformatics Infrastructure built for
-              <br />
+              Cloud-Native Bioinformatics Infrastructure for
+
               <span class="text-gradient">AI-Driven Discovery </span>
             </h1>
 
             <p class="text-lg text-slate-300 leading-relaxed max-w-4xl mb-8">
-              I design and implement reproducible data analysis pipelines and
-              secure, GPU-accelerated cloud infrastructure for computational
-              biology teams. From NGS workflows to scalable AI systems, each
-              solution is tailored to your use case to accelerate your research.
+              I design and implement reproducible pipelines and GPU-backed cloud
+              infrastructure for your computational biology teams, with seamless
+              integration across your data, tools, and workflows to accelerate
+              your research. Not models — integration is the real bottleneck.
             </p>
 
             <div class="flex flex-wrap gap-4 mb-10">
