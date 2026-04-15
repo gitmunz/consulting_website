@@ -41,6 +41,18 @@
     }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            screens: {
+              md: "1000px",
+              xl: "1300px",
+            },
+          },
+        },
+      };
+    </script>
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
@@ -167,7 +179,7 @@
       id="siteHeader"
       class="fixed top-0 w-full z-50 glass-nav transition-all duration-300"
     >
-      <div class="max-w-7xl mx-auto px-4 md:px-1 py-4">
+      <div class="max-w-7xl mx-auto px-4 md:px-6 xl:px-1 py-4">
         <div class="flex items-center justify-between">
           <a class="flex flex-col group" href="index.html" aria-label="Home">
             <strong
